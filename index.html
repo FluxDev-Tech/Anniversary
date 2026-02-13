@@ -2,146 +2,167 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#ec4899">
+    <meta name="description" content="A special anniversary gift">
     <title>For My Love ❤️</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind config for mobile optimization
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                        'xs': '375px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1024px',
+                        'xl': '1280px',
+                        '2xl': '1536px',
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="overflow-x-hidden">
 
     <!-- Section 1: Login Screen -->
-    <section id="loginSection" class="min-h-screen flex items-center justify-center relative overflow-hidden p-4 sm:p-6 lg:p-8">
+    <section id="loginSection" class="min-h-screen flex items-center justify-center relative overflow-hidden">
         <!-- Animated Background -->
         <div class="absolute inset-0 bg-gradient-to-br from-pink-200 via-rose-200 to-red-200"></div>
         <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-10 sm:top-20 left-5 sm:left-10 w-40 h-40 sm:w-72 sm:h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-            <div class="absolute top-20 sm:top-40 right-5 sm:right-10 w-40 h-40 sm:w-72 sm:h-72 bg-rose-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-            <div class="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-40 h-40 sm:w-72 sm:h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+            <div class="absolute top-20 left-10 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-rose-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-20 left-20 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
         </div>
         
         <!-- Animated particles -->
         <div id="particlesContainer" class="absolute inset-0"></div>
         
         <!-- Login Card -->
-        <div class="glass rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 max-w-md w-full mx-auto relative z-10 transform transition-all duration-500 sm:hover:scale-105">
+        <div class="glass rounded-3xl shadow-2xl p-8 md:p-12 max-w-md w-full mx-4 relative z-10 transform transition-all duration-500 hover:scale-105">
             <!-- Decorative Elements -->
-            <div class="hidden sm:block absolute -top-6 -right-6 w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center text-2xl lg:text-3xl shadow-lg animate-bounce">
+            <div class="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center text-3xl shadow-lg animate-bounce">
                 💕
             </div>
-            <div class="hidden sm:block absolute -bottom-6 -left-6 w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-rose-400 to-red-500 rounded-full flex items-center justify-center text-xl lg:text-2xl shadow-lg animate-pulse">
+            <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-rose-400 to-red-500 rounded-full flex items-center justify-center text-2xl shadow-lg animate-pulse">
                 ❤️
             </div>
             
-            <div class="text-center mb-6 sm:mb-8">
-                <div class="inline-block mb-3 sm:mb-4">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-3xl sm:text-4xl shadow-lg mb-3 sm:mb-4 animate-pulse">
+            <div class="text-center mb-8">
+                <div class="inline-block mb-4">
+                    <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-4xl shadow-lg mb-4 animate-pulse">
                         🔐
                     </div>
                 </div>
-                <h1 class="dancing text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-rose-600 mb-3 sm:mb-4 drop-shadow-lg leading-tight">
+                <h1 class="dancing text-5xl md:text-7xl text-rose-600 mb-4 drop-shadow-lg">
                     For My Love
                 </h1>
-                <div class="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-                    <div class="h-px w-12 sm:w-16 bg-gradient-to-r from-transparent via-rose-400 to-transparent"></div>
-                    <span class="text-rose-500 text-xl sm:text-2xl">✦</span>
-                    <div class="h-px w-12 sm:w-16 bg-gradient-to-r from-transparent via-rose-400 to-transparent"></div>
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <div class="h-px w-16 bg-gradient-to-r from-transparent via-rose-400 to-transparent"></div>
+                    <span class="text-rose-500 text-2xl">✦</span>
+                    <div class="h-px w-16 bg-gradient-to-r from-transparent via-rose-400 to-transparent"></div>
                 </div>
-                <p class="text-gray-700 text-base sm:text-lg font-light px-2">Enter the secret to unlock your gift ❤️</p>
+                <p class="text-gray-700 text-lg font-light">Enter the secret to unlock your gift ❤️</p>
             </div>
             
-            <div class="space-y-4 sm:space-y-6">
+            <div class="space-y-6">
                 <div class="relative">
-                    <div class="absolute inset-y-0 left-0 pl-4 sm:pl-6 flex items-center pointer-events-none">
-                        <span class="text-rose-400 text-lg sm:text-xl">🔑</span>
+                    <div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+                        <span class="text-rose-400 text-xl">🔑</span>
                     </div>
                     <input 
                         type="password" 
                         id="passwordInput"
                         placeholder="Our secret password..."
-                        class="w-full pl-12 sm:pl-16 pr-4 sm:pr-6 py-4 sm:py-5 rounded-xl sm:rounded-2xl border-2 border-pink-300 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-200 text-center text-base sm:text-lg bg-white/80 backdrop-blur transition-all duration-300 placeholder:text-gray-400 placeholder:text-sm sm:placeholder:text-base"
+                        class="w-full pl-16 pr-6 py-5 rounded-2xl border-2 border-pink-300 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-200 text-center text-lg bg-white/80 backdrop-blur transition-all duration-300 placeholder:text-gray-400"
                     />
                 </div>
                 
                 <button 
                     onclick="checkPassword()"
-                    class="w-full bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 text-white py-4 sm:py-5 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:from-pink-600 hover:via-rose-600 hover:to-red-600 transition-all duration-300 transform active:scale-95 sm:hover:scale-105 hover:shadow-2xl relative overflow-hidden group"
+                    class="w-full bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 text-white py-5 rounded-2xl font-semibold text-lg hover:from-pink-600 hover:via-rose-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl active:scale-95 relative overflow-hidden group"
                 >
                     <span class="relative z-10 flex items-center justify-center gap-2">
                         Unlock My Heart
-                        <span class="group-hover:animate-ping text-lg sm:text-xl">💕</span>
+                        <span class="group-hover:animate-ping">💕</span>
                     </span>
                     <div class="absolute inset-0 bg-gradient-to-r from-pink-400 to-rose-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
                 
-                <p id="loginMessage" class="text-center text-xs sm:text-sm text-rose-600 h-6 font-medium"></p>
+                <p id="loginMessage" class="text-center text-sm text-rose-600 h-6 font-medium"></p>
             </div>
             
-            <div class="mt-6 sm:mt-8 text-center space-y-2">
-                <p class="text-gray-600 text-xs sm:text-sm italic px-2">Hint: It's something I say every day...</p>
-                <p class="text-gray-500 text-xs italic">...or a special year... or just your name 💖</p>
+            <div class="mt-8 text-center space-y-2">
+                <p class="text-gray-600 text-sm italic">Hint: It's something I say every day...</p>
+                <p class="text-gray-500 text-xs">...or a special year... or just your name 💖</p>
             </div>
         </div>
     </section>
 
     <!-- Section 2: Puzzle Game -->
-    <section id="puzzleSection" class="min-h-screen flex items-center justify-center relative overflow-hidden hidden p-4 sm:p-6 lg:p-8">
+    <section id="puzzleSection" class="min-h-screen flex items-center justify-center relative overflow-hidden hidden">
         <!-- Background -->
         <div class="absolute inset-0 bg-gradient-to-br from-rose-100 via-pink-100 to-red-100"></div>
         <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-5 sm:top-10 right-10 sm:right-20 w-40 h-40 sm:w-64 sm:h-64 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-            <div class="absolute bottom-5 sm:bottom-10 left-10 sm:left-20 w-40 h-40 sm:w-64 sm:h-64 bg-rose-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+            <div class="absolute top-10 right-20 w-64 h-64 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+            <div class="absolute bottom-10 left-20 w-64 h-64 bg-rose-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
         </div>
         
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-10">
+        <div class="container mx-auto px-4 py-12 relative z-10">
             <!-- Header -->
-            <div class="text-center mb-8 sm:mb-12 fade-in">
-                <div class="inline-block mb-4 sm:mb-6">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-3xl sm:text-4xl lg:text-5xl shadow-2xl animate-bounce">
+            <div class="text-center mb-12 fade-in">
+                <div class="inline-block mb-6">
+                    <div class="w-24 h-24 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-5xl shadow-2xl animate-bounce">
                         🧩
                     </div>
                 </div>
-                <h2 class="playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-rose-600 font-bold mb-3 sm:mb-4 drop-shadow-lg px-2">
+                <h2 class="playfair text-4xl md:text-6xl text-rose-600 font-bold mb-4 drop-shadow-lg">
                     Complete Our Memory
                 </h2>
-                <div class="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                    <div class="h-0.5 sm:h-1 w-16 sm:w-24 bg-gradient-to-r from-transparent via-rose-400 to-rose-400 rounded-full"></div>
-                    <span class="text-rose-500 text-2xl sm:text-3xl">✦</span>
-                    <div class="h-0.5 sm:h-1 w-16 sm:w-24 bg-gradient-to-r from-rose-400 via-rose-400 to-transparent rounded-full"></div>
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="h-1 w-24 bg-gradient-to-r from-transparent via-rose-400 to-rose-400 rounded-full"></div>
+                    <span class="text-rose-500 text-3xl">✦</span>
+                    <div class="h-1 w-24 bg-gradient-to-r from-rose-400 via-rose-400 to-transparent rounded-full"></div>
                 </div>
-                <p class="text-gray-700 text-base sm:text-lg lg:text-xl font-light px-4">Put the pieces of my heart back together ❤️</p>
+                <p class="text-gray-700 text-xl font-light">Put the pieces of my heart back together ❤️</p>
             </div>
             
             <div class="max-w-2xl mx-auto">
                 <!-- Puzzle Container -->
-                <div id="puzzleContainer" class="bg-white/40 backdrop-blur-lg rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 lg:p-10 border border-white/50">
+                <div id="puzzleContainer" class="bg-white/40 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-10 border border-white/50">
                     <!-- Progress Bar -->
-                    <div class="mb-4 sm:mb-6">
+                    <div class="mb-6">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-xs sm:text-sm font-semibold text-rose-600">Progress</span>
-                            <span id="progressText" class="text-xs sm:text-sm font-semibold text-rose-600">0%</span>
+                            <span class="text-sm font-semibold text-rose-600">Progress</span>
+                            <span id="progressText" class="text-sm font-semibold text-rose-600">0%</span>
                         </div>
-                        <div class="h-2 sm:h-3 bg-rose-100 rounded-full overflow-hidden">
+                        <div class="h-3 bg-rose-100 rounded-full overflow-hidden">
                             <div id="progressBar" class="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full transition-all duration-500 w-0"></div>
                         </div>
                     </div>
                     
                     <!-- Puzzle Grid -->
-                    <div id="puzzleGrid" class="grid grid-cols-3 gap-2 sm:gap-3 max-w-sm sm:max-w-md lg:max-w-lg mx-auto aspect-square mb-4 sm:mb-6"></div>
+                    <div id="puzzleGrid" class="grid grid-cols-3 gap-3 max-w-lg mx-auto aspect-square mb-6"></div>
                     
                     <!-- Controls -->
-                    <div class="text-center space-y-3 sm:space-y-4">
-                        <div class="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 inline-block">
-                            <p class="text-gray-700 font-medium mb-1 sm:mb-2 text-sm sm:text-base">💡 How to play</p>
-                            <p class="text-xs sm:text-sm text-gray-600">Tap two tiles to swap them</p>
+                    <div class="text-center space-y-4">
+                        <div class="glass rounded-2xl p-4 inline-block">
+                            <p class="text-gray-700 font-medium mb-2">💡 How to play</p>
+                            <p class="text-sm text-gray-600">Tap two tiles to swap them</p>
                         </div>
                         <div>
                             <button 
                                 onclick="shufflePuzzle()"
-                                class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base hover:from-pink-600 hover:to-rose-600 transition-all transform active:scale-95 sm:hover:scale-105 shadow-lg inline-flex items-center gap-2"
+                                class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-10 py-4 rounded-full font-semibold hover:from-pink-600 hover:to-rose-600 transition-all transform hover:scale-105 shadow-lg active:scale-95 inline-flex items-center gap-2"
                             >
-                                <span class="text-base sm:text-xl">🔄</span>
-                                <span class="hidden xs:inline">Shuffle Again</span>
-                                <span class="xs:hidden">Shuffle</span>
+                                <span class="text-xl">🔄</span>
+                                Shuffle Again
                             </button>
                         </div>
                     </div>
@@ -151,47 +172,47 @@
     </section>
 
     <!-- Section 3: Love Letter -->
-    <section id="letterSection" class="min-h-screen flex items-center justify-center relative overflow-hidden hidden py-8 sm:py-12 lg:py-16 px-4 sm:px-6">
+    <section id="letterSection" class="min-h-screen flex items-center justify-center relative overflow-hidden hidden py-12">
         <!-- Background -->
         <div class="absolute inset-0 bg-gradient-to-br from-pink-50 via-rose-50 to-red-50"></div>
         <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div class="absolute bottom-0 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-rose-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
         </div>
         
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-10">
-            <div class="max-w-3xl mx-auto glass rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 lg:p-16 border border-white/50">
+        <div class="container mx-auto px-4 py-12 relative z-10">
+            <div class="max-w-3xl mx-auto glass rounded-3xl shadow-2xl p-8 md:p-16 border border-white/50">
                 <!-- Decorative Corner Elements -->
-                <div class="absolute top-0 left-0 w-20 sm:w-32 h-20 sm:h-32 border-t-2 sm:border-t-4 border-l-2 sm:border-l-4 border-rose-300 rounded-tl-2xl sm:rounded-tl-3xl"></div>
-                <div class="absolute bottom-0 right-0 w-20 sm:w-32 h-20 sm:h-32 border-b-2 sm:border-b-4 border-r-2 sm:border-r-4 border-rose-300 rounded-br-2xl sm:rounded-br-3xl"></div>
+                <div class="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-rose-300 rounded-tl-3xl"></div>
+                <div class="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-rose-300 rounded-br-3xl"></div>
                 
                 <!-- Header -->
-                <div class="text-center mb-8 sm:mb-12 relative">
-                    <div class="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2">
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-lg animate-pulse">
+                <div class="text-center mb-12 relative">
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-3xl shadow-lg animate-pulse">
                             💌
                         </div>
                     </div>
-                    <div class="pt-8 sm:pt-12">
-                        <h2 class="dancing text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-rose-600 mb-4 sm:mb-6 drop-shadow-lg leading-tight">
+                    <div class="pt-12">
+                        <h2 class="dancing text-5xl md:text-7xl text-rose-600 mb-6 drop-shadow-lg">
                             My Dearest Love
                         </h2>
-                        <div class="flex items-center justify-center gap-2 sm:gap-3">
-                            <div class="h-0.5 sm:h-1 w-20 sm:w-32 bg-gradient-to-r from-transparent via-pink-500 to-pink-500 rounded-full"></div>
-                            <span class="text-rose-500 text-xl sm:text-2xl">♥</span>
-                            <div class="h-0.5 sm:h-1 w-20 sm:w-32 bg-gradient-to-r from-pink-500 via-pink-500 to-transparent rounded-full"></div>
+                        <div class="flex items-center justify-center gap-3">
+                            <div class="h-1 w-32 bg-gradient-to-r from-transparent via-pink-500 to-pink-500 rounded-full"></div>
+                            <span class="text-rose-500 text-2xl">♥</span>
+                            <div class="h-1 w-32 bg-gradient-to-r from-pink-500 via-pink-500 to-transparent rounded-full"></div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Letter Content -->
-                <div class="space-y-6 sm:space-y-8 text-gray-700 leading-relaxed text-base sm:text-lg md:text-xl">
-                    <p class="fade-in first-letter:text-5xl sm:first-letter:text-7xl first-letter:font-bold first-letter:text-rose-600 first-letter:mr-2 sm:first-letter:mr-3 first-letter:float-left" style="animation-delay: 0.3s;">
+                <div class="space-y-8 text-gray-700 leading-relaxed text-lg md:text-xl">
+                    <p class="fade-in first-letter:text-7xl first-letter:font-bold first-letter:text-rose-600 first-letter:mr-3 first-letter:float-left" style="animation-delay: 0.3s;">
                         Every moment with you feels like a beautiful dream I never want to wake up from. From the first time I saw you, I knew my life would never be the same. You walked into my world and painted it with colors I never knew existed.
                     </p>
                     
-                    <div class="relative pl-4 sm:pl-6 border-l-2 sm:border-l-4 border-rose-300 fade-in" style="animation-delay: 0.6s;">
-                        <p class="italic text-rose-700 text-sm sm:text-base md:text-lg">
+                    <div class="relative pl-6 border-l-4 border-rose-300 fade-in" style="animation-delay: 0.6s;">
+                        <p class="italic text-rose-700">
                             "You are my sunrise on the darkest days, my laughter in moments of silence, and my peace in the chaos of life."
                         </p>
                     </div>
@@ -204,12 +225,12 @@
                         Thank you for being my partner, my best friend, and my everything. Thank you for choosing me every single day, for believing in us, and for filling my life with so much love, joy, and happiness that my heart could burst.
                     </p>
                     
-                    <div class="text-center mt-8 sm:mt-12 fade-in" style="animation-delay: 1.5s;">
-                        <div class="inline-block bg-gradient-to-r from-pink-100 to-rose-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl">
-                            <p class="text-2xl sm:text-3xl md:text-4xl dancing text-rose-600 font-bold mb-2">
+                    <div class="text-center mt-12 fade-in" style="animation-delay: 1.5s;">
+                        <div class="inline-block bg-gradient-to-r from-pink-100 to-rose-100 rounded-3xl p-8 shadow-xl">
+                            <p class="text-3xl md:text-4xl dancing text-rose-600 font-bold mb-2">
                                 Happy Anniversary
                             </p>
-                            <p class="text-lg sm:text-xl text-gray-600">
+                            <p class="text-xl text-gray-600">
                                 my forever love ❤️
                             </p>
                         </div>
@@ -217,14 +238,13 @@
                 </div>
                 
                 <!-- Continue Button -->
-                <div class="text-center mt-8 sm:mt-12">
+                <div class="text-center mt-12">
                     <button 
                         onclick="showGallery()"
-                        class="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 text-white px-8 sm:px-10 lg:px-12 py-4 sm:py-5 rounded-full font-semibold text-base sm:text-lg hover:from-pink-600 hover:via-rose-600 hover:to-red-600 transition-all transform active:scale-95 sm:hover:scale-105 shadow-2xl inline-flex items-center gap-2 sm:gap-3 group"
+                        class="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 text-white px-12 py-5 rounded-full font-semibold text-lg hover:from-pink-600 hover:via-rose-600 hover:to-red-600 transition-all transform hover:scale-105 shadow-2xl active:scale-95 inline-flex items-center gap-3 group"
                     >
-                        <span class="hidden sm:inline">Continue to Our Memories</span>
-                        <span class="sm:hidden">Our Memories</span>
-                        <span class="group-hover:translate-x-1 transition-transform text-lg sm:text-xl">💕</span>
+                        Continue to Our Memories
+                        <span class="group-hover:translate-x-1 transition-transform">💕</span>
                     </button>
                 </div>
             </div>
@@ -232,52 +252,52 @@
     </section>
 
     <!-- Section 4: Gallery -->
-    <section id="gallerySection" class="min-h-screen relative overflow-hidden hidden py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
+    <section id="gallerySection" class="min-h-screen relative overflow-hidden hidden py-16">
         <!-- Background -->
         <div class="absolute inset-0 bg-gradient-to-br from-rose-100 via-pink-100 to-red-100"></div>
         <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-            <div class="absolute top-20 sm:top-40 right-10 sm:right-20 w-48 h-48 sm:w-72 sm:h-72 bg-rose-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-            <div class="absolute bottom-10 sm:bottom-20 left-1/4 sm:left-1/3 w-48 h-48 sm:w-72 sm:h-72 bg-red-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+            <div class="absolute top-20 left-10 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+            <div class="absolute top-40 right-20 w-72 h-72 bg-rose-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-20 left-1/3 w-72 h-72 bg-red-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
         </div>
         
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="container mx-auto px-4 relative z-10">
             <!-- Header -->
-            <div class="text-center mb-12 sm:mb-16 fade-in">
-                <div class="inline-block mb-4 sm:mb-6">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-3xl sm:text-4xl lg:text-5xl shadow-2xl animate-pulse">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-block mb-6">
+                    <div class="w-24 h-24 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-5xl shadow-2xl animate-pulse">
                         📸
                     </div>
                 </div>
-                <h2 class="playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-rose-600 font-bold mb-3 sm:mb-4 drop-shadow-lg px-2">
+                <h2 class="playfair text-4xl md:text-6xl text-rose-600 font-bold mb-4 drop-shadow-lg">
                     Our Beautiful Journey
                 </h2>
-                <div class="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                    <div class="h-0.5 sm:h-1 w-16 sm:w-24 bg-gradient-to-r from-transparent via-rose-400 to-rose-400 rounded-full"></div>
-                    <span class="text-rose-500 text-2xl sm:text-3xl">✦</span>
-                    <div class="h-0.5 sm:h-1 w-16 sm:w-24 bg-gradient-to-r from-rose-400 via-rose-400 to-transparent rounded-full"></div>
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="h-1 w-24 bg-gradient-to-r from-transparent via-rose-400 to-rose-400 rounded-full"></div>
+                    <span class="text-rose-500 text-3xl">✦</span>
+                    <div class="h-1 w-24 bg-gradient-to-r from-rose-400 via-rose-400 to-transparent rounded-full"></div>
                 </div>
-                <p class="text-gray-700 text-base sm:text-lg lg:text-xl font-light px-4">Every picture tells our story ❤️</p>
+                <p class="text-gray-700 text-xl font-light">Every picture tells our story ❤️</p>
             </div>
             
             <!-- Gallery Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto mb-12 sm:mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
                 <!-- Memory Card 1 -->
                 <div class="gallery-item group" onclick="openModal(0)">
-                    <div class="glass rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-500 sm:hover:shadow-2xl sm:hover:-translate-y-2 border border-white/50">
+                    <div class="glass rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-white/50">
                         <div class="relative aspect-square bg-gradient-to-br from-pink-300 via-rose-300 to-pink-400 flex items-center justify-center overflow-hidden">
-                            <span class="text-6xl sm:text-7xl lg:text-8xl group-hover:scale-125 transition-transform duration-500">📸</span>
+                            <span class="text-8xl group-hover:scale-125 transition-transform duration-500">📸</span>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         </div>
-                        <div class="p-4 sm:p-5 lg:p-6 bg-white/80 backdrop-blur">
-                            <div class="flex items-start justify-between mb-2 sm:mb-3">
-                                <h3 class="font-bold text-lg sm:text-xl text-rose-600">Our First Moments</h3>
-                                <span class="text-xl sm:text-2xl">✨</span>
+                        <div class="p-6 bg-white/80 backdrop-blur">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="font-bold text-xl text-rose-600">Our First Moments</h3>
+                                <span class="text-2xl">✨</span>
                             </div>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3 sm:mb-4">The day everything changed...</p>
-                            <div class="flex items-center text-rose-500 text-xs sm:text-sm font-semibold">
+                            <p class="text-sm text-gray-600 leading-relaxed">The day everything changed...</p>
+                            <div class="mt-4 flex items-center text-rose-500 text-sm font-semibold">
                                 <span>View memory</span>
-                                <svg class="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                 </svg>
                             </div>
@@ -287,20 +307,20 @@
                 
                 <!-- Memory Card 2 -->
                 <div class="gallery-item group" onclick="openModal(1)">
-                    <div class="glass rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-500 sm:hover:shadow-2xl sm:hover:-translate-y-2 border border-white/50">
+                    <div class="glass rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-white/50">
                         <div class="relative aspect-square bg-gradient-to-br from-rose-300 via-red-300 to-rose-400 flex items-center justify-center overflow-hidden">
-                            <span class="text-6xl sm:text-7xl lg:text-8xl group-hover:scale-125 transition-transform duration-500">❤️</span>
+                            <span class="text-8xl group-hover:scale-125 transition-transform duration-500">❤️</span>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         </div>
-                        <div class="p-4 sm:p-5 lg:p-6 bg-white/80 backdrop-blur">
-                            <div class="flex items-start justify-between mb-2 sm:mb-3">
-                                <h3 class="font-bold text-lg sm:text-xl text-rose-600">Why I Love You</h3>
-                                <span class="text-xl sm:text-2xl">💖</span>
+                        <div class="p-6 bg-white/80 backdrop-blur">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="font-bold text-xl text-rose-600">Why I Love You</h3>
+                                <span class="text-2xl">💖</span>
                             </div>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3 sm:mb-4">Your smile lights up my world</p>
-                            <div class="flex items-center text-rose-500 text-xs sm:text-sm font-semibold">
+                            <p class="text-sm text-gray-600 leading-relaxed">Your smile lights up my world</p>
+                            <div class="mt-4 flex items-center text-rose-500 text-sm font-semibold">
                                 <span>View memory</span>
-                                <svg class="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                 </svg>
                             </div>
@@ -310,17 +330,17 @@
                 
                 <!-- Memory Card 3 -->
                 <div class="gallery-item group" onclick="openModal(2)">
-                    <div class="glass rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-500 sm:hover:shadow-2xl sm:hover:-translate-y-2 border border-white/50">
+                    <div class="glass rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-white/50">
                         <div class="relative aspect-square bg-gradient-to-br from-pink-300 via-rose-400 to-pink-500 flex items-center justify-center overflow-hidden">
-                            <span class="text-6xl sm:text-7xl lg:text-8xl group-hover:scale-125 transition-transform duration-500">💑</span>
+                            <span class="text-8xl group-hover:scale-125 transition-transform duration-500">💑</span>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         </div>
-                        <div class="p-4 sm:p-5 lg:p-6 bg-white/80 backdrop-blur">
-                            <div class="flex items-start justify-between mb-2 sm:mb-3">
-                                <h3 class="font-bold text-lg sm:text-xl text-rose-600">Us, Always</h3>
-                                <span class="text-xl sm:text-2xl">💞</span>
+                        <div class="p-6 bg-white/80 backdrop-blur">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="font-bold text-xl text-rose-600">Us, Always</h3>
+                                <span class="text-2xl">💞</span>
                             </div>
-                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3 sm:mb-4">Together forever, no matter what</p>
+                            <p class="text-sm text-gray-600 leading-relaxed">Together forever, no matter what</p>
                             <div class="mt-4 flex items-center text-rose-500 text-sm font-semibold">
                                 <span>View memory</span>
                                 <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -415,89 +435,88 @@
     </section>
 
     <!-- Section 5: Final Surprise -->
-    <section id="finalSection" class="min-h-screen flex items-center justify-center relative overflow-hidden hidden p-4 sm:p-6 lg:p-8">
+    <section id="finalSection" class="min-h-screen flex items-center justify-center relative overflow-hidden hidden">
         <!-- Background -->
         <div class="absolute inset-0 bg-gradient-to-br from-pink-200 via-rose-200 to-red-200"></div>
         <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-5 sm:top-10 left-5 sm:left-10 w-64 h-64 sm:w-96 sm:h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div class="absolute top-10 sm:top-20 right-5 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-rose-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-            <div class="absolute bottom-5 sm:bottom-10 left-1/4 sm:left-1/3 w-64 h-64 sm:w-96 sm:h-96 bg-red-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+            <div class="absolute top-10 left-10 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+            <div class="absolute top-20 right-10 w-96 h-96 bg-rose-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-10 left-1/3 w-96 h-96 bg-red-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
         </div>
         
         <!-- Floating hearts container -->
         <div id="heartsContainer" class="absolute inset-0 pointer-events-none"></div>
         
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-10">
+        <div class="container mx-auto px-4 py-12 relative z-10">
             <div class="max-w-5xl mx-auto text-center">
-                <div class="glass rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 lg:p-20 border border-white/50">
+                <div class="glass rounded-3xl shadow-2xl p-8 md:p-20 border border-white/50">
                     <!-- Decorative Top -->
-                    <div class="flex justify-center mb-6 sm:mb-8">
-                        <div class="flex gap-2 sm:gap-4">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-lg animate-bounce">💕</div>
-                            <div class="w-14 h-14 sm:w-20 sm:h-20 bg-gradient-to-br from-rose-500 to-red-500 rounded-full flex items-center justify-center text-3xl sm:text-4xl shadow-xl animate-pulse">❤️</div>
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-lg animate-bounce animation-delay-2000">💖</div>
+                    <div class="flex justify-center mb-8">
+                        <div class="flex gap-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-3xl shadow-lg animate-bounce">💕</div>
+                            <div class="w-20 h-20 bg-gradient-to-br from-rose-500 to-red-500 rounded-full flex items-center justify-center text-4xl shadow-xl animate-pulse">❤️</div>
+                            <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-3xl shadow-lg animate-bounce animation-delay-2000">💖</div>
                         </div>
                     </div>
                     
                     <!-- Main Message -->
-                    <h1 class="dancing text-4xl sm:text-6xl md:text-7xl lg:text-9xl text-rose-600 mb-6 sm:mb-8 drop-shadow-2xl pulse-slow leading-tight px-2">
+                    <h1 class="dancing text-6xl md:text-9xl text-rose-600 mb-8 drop-shadow-2xl pulse-slow">
                         Happy Anniversary
                     </h1>
                     
-                    <div class="flex items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8">
-                        <div class="h-0.5 sm:h-1 w-20 sm:w-32 bg-gradient-to-r from-transparent via-rose-500 to-rose-500 rounded-full"></div>
-                        <span class="text-rose-500 text-2xl sm:text-4xl">♥</span>
-                        <div class="h-0.5 sm:h-1 w-20 sm:w-32 bg-gradient-to-r from-rose-500 via-rose-500 to-transparent rounded-full"></div>
+                    <div class="flex items-center justify-center gap-4 mb-8">
+                        <div class="h-1 w-32 bg-gradient-to-r from-transparent via-rose-500 to-rose-500 rounded-full"></div>
+                        <span class="text-rose-500 text-4xl">♥</span>
+                        <div class="h-1 w-32 bg-gradient-to-r from-rose-500 via-rose-500 to-transparent rounded-full"></div>
                     </div>
                     
-                    <h2 class="playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 font-bold mb-8 sm:mb-12">
+                    <h2 class="playfair text-3xl md:text-5xl text-gray-800 font-bold mb-12">
                         My Love ❤️
                     </h2>
                     
                     <!-- Message Content -->
-                    <div class="space-y-6 sm:space-y-8 text-gray-700 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 sm:mb-12 max-w-3xl mx-auto">
-                        <p class="fade-in px-2">
+                    <div class="space-y-8 text-gray-700 text-lg md:text-2xl leading-relaxed mb-12 max-w-3xl mx-auto">
+                        <p class="fade-in">
                             Today marks another beautiful chapter in our love story. Every day with you is a gift, and I promise to cherish you, support you, and love you more with each passing moment.
                         </p>
                         
-                        <div class="bg-gradient-to-r from-pink-100 via-rose-100 to-pink-100 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl">
-                            <p class="text-2xl sm:text-3xl md:text-4xl dancing text-rose-600 font-bold leading-tight">
+                        <div class="bg-gradient-to-r from-pink-100 via-rose-100 to-pink-100 rounded-3xl p-8 shadow-xl">
+                            <p class="text-3xl md:text-4xl dancing text-rose-600 font-bold">
                                 Here's to forever with you, my darling 💕
                             </p>
                         </div>
                         
-                        <blockquote class="relative pl-4 sm:pl-6 lg:pl-8 border-l-2 sm:border-l-4 border-rose-400">
-                            <p class="italic text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl">
+                        <blockquote class="relative pl-8 border-l-4 border-rose-400">
+                            <p class="italic text-gray-600 text-xl">
                                 "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."
                             </p>
-                            <footer class="text-xs sm:text-sm text-gray-500 mt-2">- Maya Angelou</footer>
+                            <footer class="text-sm text-gray-500 mt-2">- Maya Angelou</footer>
                         </blockquote>
                     </div>
                     
                     <!-- Music Controls -->
-                    <div class="space-y-4 sm:space-y-6">
+                    <div class="space-y-6">
                         <button 
                             onclick="toggleMusic()"
                             id="musicButton"
-                            class="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base lg:text-lg hover:from-pink-600 hover:via-rose-600 hover:to-red-600 transition-all transform active:scale-95 sm:hover:scale-105 shadow-2xl inline-flex items-center gap-2 sm:gap-3 group"
+                            class="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 text-white px-10 py-4 rounded-full font-semibold text-lg hover:from-pink-600 hover:via-rose-600 hover:to-red-600 transition-all transform hover:scale-105 shadow-2xl active:scale-95 inline-flex items-center gap-3 group"
                         >
-                            <span class="text-xl sm:text-2xl group-hover:scale-125 transition-transform">🎵</span>
-                            <span class="hidden xs:inline">Play Our Song</span>
-                            <span class="xs:hidden">Play Song</span>
+                            <span class="text-2xl group-hover:scale-125 transition-transform">🎵</span>
+                            Play Our Song
                         </button>
                         
-                        <p class="text-xs sm:text-sm text-gray-500 italic max-w-md mx-auto px-4">
+                        <p class="text-sm text-gray-500 italic max-w-md mx-auto">
                             Add your favorite song to make this moment even more magical ✨
                         </p>
                     </div>
                     
                     <!-- Bottom Decoration -->
-                    <div class="mt-8 sm:mt-12 flex justify-center gap-1 sm:gap-2">
-                        <span class="text-2xl sm:text-3xl animate-pulse">💕</span>
-                        <span class="text-2xl sm:text-3xl animate-pulse animation-delay-1000">❤️</span>
-                        <span class="text-2xl sm:text-3xl animate-pulse animation-delay-2000">💖</span>
-                        <span class="text-2xl sm:text-3xl animate-pulse animation-delay-3000">💝</span>
-                        <span class="text-2xl sm:text-3xl animate-pulse animation-delay-4000">💕</span>
+                    <div class="mt-12 flex justify-center gap-2">
+                        <span class="text-3xl animate-pulse">💕</span>
+                        <span class="text-3xl animate-pulse animation-delay-1000">❤️</span>
+                        <span class="text-3xl animate-pulse animation-delay-2000">💖</span>
+                        <span class="text-3xl animate-pulse animation-delay-3000">💝</span>
+                        <span class="text-3xl animate-pulse animation-delay-4000">💕</span>
                     </div>
                 </div>
             </div>
@@ -505,41 +524,26 @@
     </section>
 
     <!-- Modal for Gallery -->
-    <div id="galleryModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4">
+    <div id="galleryModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
         <div class="absolute inset-0 modal-backdrop" onclick="closeModal()"></div>
         
         <div class="relative max-w-4xl w-full transform transition-all duration-500 scale-95 opacity-0" id="modalInner">
             <!-- Close Button -->
             <button 
                 onclick="closeModal()"
-                class="absolute -top-10 sm:-top-16 right-0 w-10 h-10 sm:w-12 sm:h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white text-xl sm:text-2xl hover:bg-white/30 transition-all hover:rotate-90 duration-300 shadow-lg"
+                class="absolute -top-16 right-0 w-12 h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white text-2xl hover:bg-white/30 transition-all hover:rotate-90 duration-300"
             >
                 ✕
             </button>
             
             <!-- Modal Content -->
-            <div class="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 max-h-[85vh] overflow-y-auto border border-white/50 shadow-2xl">
+            <div class="glass rounded-3xl p-8 md:p-12 max-h-[85vh] overflow-y-auto border border-white/50 shadow-2xl">
                 <div id="modalContent" class="text-center">
                     <!-- Content will be injected here -->
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Hidden Image for Puzzle (REPLACE THIS) -->
-    <!-- 
-        TO USE YOUR OWN IMAGE FOR THE PUZZLE:
-        1. Save your image in the same folder as this HTML file
-        2. Name it "puzzle-image.jpg" (or update the src below)
-        3. The puzzle will automatically use your image!
-        
-        Recommended image specs:
-        - Square or close to square (1:1 ratio)
-        - Minimum 600x600px
-        - Clear, high-quality photo
-        - Good contrast and details
-    -->
-    <img id="puzzleSourceImage" src="puzzle-image.jpg" alt="Puzzle Image" style="display: none;" crossorigin="anonymous">
 
     <!-- JavaScript -->
     <script src="script.js"></script>
