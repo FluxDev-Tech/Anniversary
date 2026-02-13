@@ -7,8 +7,53 @@ const CONFIG = {
     floatingHeartInterval: 800,
     floatingHeartDuration: 8000,
     particleCount: 20,
-    puzzleSize: 3
+    puzzleSize: 3,
+    isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+    isTouch: 'ontouchstart' in window || navigator.maxTouchPoints > 0
 };
+
+// ============================================
+// MOBILE DETECTION & UTILITIES
+// ============================================
+
+/**
+ * Detect if device is mobile
+ */
+function isMobileDevice() {
+    return CONFIG.isMobile || CONFIG.isTouch;
+}
+
+/**
+ * Prevent default touch behaviors
+ */
+function preventDefaultTouch(e) {
+    if (e.touches.length > 1) {
+        e.preventDefault();
+    }
+}
+
+/**
+ * Fix mobile viewport height issue
+ */
+function setMobileVH() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+/**
+ * Debounce function for resize events
+ */
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
 
 // ============================================
 // STATE MANAGEMENT
@@ -207,68 +252,9 @@ function handlePasswordKeyPress(event) {
 // ============================================
 
 /**
- * Load and create puzzle image from user's uploaded photo
+ * Create a placeholder puzzle image
  */
 function createPlaceholderImage() {
-    return new Promise((resolve, reject) => {
-        const img = document.getElementById('puzzleSourceImage');
-        
-        // If image exists and has a valid src
-        if (img && img.src && !img.src.includes('puzzle-image.jpg')) {
-            // Image is already set, create canvas from it
-            createCanvasFromImage(img).then(resolve).catch(reject);
-        } else {
-            // Try to load the image
-            const customImg = new Image();
-            customImg.crossOrigin = 'anonymous';
-            
-            customImg.onload = function() {
-                createCanvasFromImage(customImg).then(resolve).catch(reject);
-            };
-            
-            customImg.onerror = function() {
-                // If custom image fails, use placeholder
-                console.log('Custom image not found, using placeholder heart image');
-                resolve(createDefaultPlaceholder());
-            };
-            
-            // Try to load custom image
-            customImg.src = 'puzzle-image.jpg?' + new Date().getTime(); // Cache buster
-        }
-    });
-}
-
-/**
- * Create canvas from loaded image
- */
-function createCanvasFromImage(img) {
-    return new Promise((resolve) => {
-        const canvas = document.createElement('canvas');
-        const size = 600;
-        canvas.width = size;
-        canvas.height = size;
-        const ctx = canvas.getContext('2d');
-        
-        // Calculate dimensions to fit image in square
-        const scale = Math.max(size / img.width, size / img.height);
-        const x = (size / 2) - (img.width / 2) * scale;
-        const y = (size / 2) - (img.height / 2) * scale;
-        
-        // Fill background
-        ctx.fillStyle = '#f9a8d4';
-        ctx.fillRect(0, 0, size, size);
-        
-        // Draw image centered and scaled
-        ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
-        
-        resolve(canvas.toDataURL());
-    });
-}
-
-/**
- * Create default placeholder with heart (fallback)
- */
-function createDefaultPlaceholder() {
     const canvas = document.createElement('canvas');
     canvas.width = 600;
     canvas.height = 600;
@@ -311,30 +297,10 @@ function createDefaultPlaceholder() {
 /**
  * Initialize the puzzle game
  */
-async function initPuzzle() {
-    // Show loading state
-    const grid = document.getElementById('puzzleGrid');
-    if (grid) {
-        grid.innerHTML = `
-            <div class="col-span-3 flex items-center justify-center p-12">
-                <div class="text-center">
-                    <div class="w-16 h-16 border-4 border-rose-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p class="text-gray-600">Loading puzzle...</p>
-                </div>
-            </div>
-        `;
-    }
-    
-    try {
-        state.puzzleImage = await createPlaceholderImage();
-        state.isPuzzleSolved = false;
-        shufflePuzzle();
-    } catch (error) {
-        console.error('Error loading puzzle image:', error);
-        state.puzzleImage = createDefaultPlaceholder();
-        state.isPuzzleSolved = false;
-        shufflePuzzle();
-    }
+function initPuzzle() {
+    state.puzzleImage = createPlaceholderImage();
+    state.isPuzzleSolved = false;
+    shufflePuzzle();
 }
 
 /**
@@ -395,6 +361,11 @@ function selectTile(index) {
         // First tile selected
         state.selectedTile = index;
         tiles[index].classList.add('selected');
+        
+        // Haptic feedback on mobile (if supported)
+        if (navigator.vibrate) {
+            navigator.vibrate(50);
+        }
     } else {
         // Second tile selected
         tiles[state.selectedTile].classList.remove('selected');
@@ -404,11 +375,20 @@ function selectTile(index) {
             [state.puzzleState[state.selectedTile], state.puzzleState[index]] = 
             [state.puzzleState[index], state.puzzleState[state.selectedTile]];
             
+            // Haptic feedback for successful swap
+            if (navigator.vibrate) {
+                navigator.vibrate([30, 10, 30]);
+            }
+            
             renderPuzzle();
             updateProgress();
 
             // Check if puzzle is solved
             if (checkPuzzleSolved()) {
+                // Success haptic
+                if (navigator.vibrate) {
+                    navigator.vibrate([50, 50, 50, 50, 200]);
+                }
                 setTimeout(showPuzzleComplete, 500);
             }
         }
@@ -545,22 +525,22 @@ function openModal(index) {
 
     content.innerHTML = `
         <div class="fade-in">
-            <div class="mb-6 sm:mb-8">
-                <div class="inline-block w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br ${memory.color} rounded-full flex items-center justify-center text-4xl sm:text-5xl lg:text-6xl shadow-2xl mb-4 sm:mb-6 animate-bounce">
+            <div class="mb-8">
+                <div class="inline-block w-24 h-24 bg-gradient-to-br ${memory.color} rounded-full flex items-center justify-center text-6xl shadow-2xl mb-6 animate-bounce">
                     ${memory.emoji}
                 </div>
             </div>
-            <h3 class="playfair text-2xl sm:text-3xl md:text-4xl text-rose-600 font-bold mb-4 sm:mb-6 drop-shadow-lg px-2">
+            <h3 class="playfair text-3xl md:text-4xl text-rose-600 font-bold mb-6 drop-shadow-lg">
                 ${memory.title}
             </h3>
-            <div class="h-0.5 sm:h-1 w-20 sm:w-32 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full mx-auto mb-6 sm:mb-8"></div>
-            <p class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto px-2">
+            <div class="h-1 w-32 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full mx-auto mb-8"></div>
+            <p class="text-gray-700 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
                 ${memory.caption}
             </p>
-            <div class="mt-8 sm:mt-10">
+            <div class="mt-10">
                 <button 
                     onclick="closeModal()"
-                    class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-sm sm:text-base hover:from-pink-600 hover:to-rose-600 transition-all transform active:scale-95 sm:hover:scale-105 shadow-lg"
+                    class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-3 rounded-full font-semibold hover:from-pink-600 hover:to-rose-600 transition-all transform hover:scale-105 shadow-lg"
                 >
                     Close
                 </button>
@@ -664,6 +644,25 @@ function showMusicNotification() {
  * Initialize event listeners when DOM is loaded
  */
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile viewport height fix
+    setMobileVH();
+    window.addEventListener('resize', debounce(setMobileVH, 150));
+    window.addEventListener('orientationchange', setMobileVH);
+    
+    // Prevent pull-to-refresh on mobile
+    document.body.addEventListener('touchmove', function(e) {
+        if (e.touches.length > 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    // Prevent pinch-to-zoom on specific elements
+    document.addEventListener('touchmove', function(e) {
+        if (e.scale !== 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
     // Create particles on login screen
     createParticles();
 
@@ -671,7 +670,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('passwordInput');
     if (passwordInput) {
         passwordInput.addEventListener('keypress', handlePasswordKeyPress);
-        passwordInput.focus();
+        
+        // Auto-focus on desktop only (prevents keyboard pop-up on mobile)
+        if (!isMobileDevice()) {
+            passwordInput.focus();
+        }
     }
 
     // Modal close on Escape key
@@ -686,6 +689,17 @@ document.addEventListener('DOMContentLoaded', function() {
     forms.forEach(form => {
         form.addEventListener('submit', (e) => e.preventDefault());
     });
+    
+    // Add touch feedback class to mobile
+    if (isMobileDevice()) {
+        document.body.classList.add('touch-device');
+    }
+    
+    // Optimize for mobile performance
+    if (isMobileDevice()) {
+        // Reduce particle count on mobile
+        CONFIG.particleCount = 10;
+    }
 });
 
 // ============================================
