@@ -2,550 +2,785 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#ec4899">
-    <meta name="description" content="A special anniversary gift">
-    <title>For My Love ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary, My Love 💖</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        // Tailwind config for mobile optimization
-        tailwind.config = {
-            theme: {
-                extend: {
-                    screens: {
-                        'xs': '375px',
-                        'sm': '640px',
-                        'md': '768px',
-                        'lg': '1024px',
-                        'xl': '1280px',
-                        '2xl': '1536px',
-                    }
-                }
-            }
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    </script>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="overflow-x-hidden">
 
-    <!-- Section 1: Login Screen -->
-    <section id="loginSection" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <!-- Animated Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-pink-200 via-rose-200 to-red-200"></div>
-        <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-            <div class="absolute top-40 right-10 w-72 h-72 bg-rose-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-            <div class="absolute bottom-20 left-20 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
-        </div>
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-dancing {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Login Page Styles */
+        .login-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-40px) rotate(-5deg); }
+            75% { transform: translateY(-20px) rotate(3deg); }
+        }
+
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main Site Styles */
+        .main-site-bg {
+            background: linear-gradient(to bottom, #ffeef8, #fff5f7, #ffffff);
+        }
+
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            animation: rise 8s infinite;
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+        }
+
+        .glow {
+            text-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #f093fb, #f5576c);
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 20px rgba(245, 87, 108, 0.6);
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item::after {
+            content: '💕';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .puzzle-piece {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .puzzle-piece:hover {
+            border-color: #f093fb;
+            transform: scale(1.05);
+        }
+
+        .puzzle-piece.selected {
+            border-color: #f5576c;
+            box-shadow: 0 0 20px rgba(245, 87, 108, 0.8);
+        }
+
+        .love-letter {
+            background: linear-gradient(to bottom, #fff9fc, #ffffff);
+            border-left: 4px solid #f5576c;
+            padding: 3rem;
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #4a4a4a;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 600px;
+            position: relative;
+            animation: modalSlide 0.5s ease;
+        }
+
+        @keyframes modalSlide {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .sparkle {
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .heart-beat {
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #ffeef8;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #f093fb, #f5576c);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-bg flex items-center justify-center">
+        <!-- Floating Hearts Background -->
+        <div id="floatingHearts"></div>
         
-        <!-- Animated particles -->
-        <div id="particlesContainer" class="absolute inset-0"></div>
-        
-        <!-- Login Card -->
-        <div class="glass rounded-3xl shadow-2xl p-8 md:p-12 max-w-md w-full mx-4 relative z-10 transform transition-all duration-500 hover:scale-105">
-            <!-- Decorative Elements -->
-            <div class="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center text-3xl shadow-lg animate-bounce">
-                💕
-            </div>
-            <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-rose-400 to-red-500 rounded-full flex items-center justify-center text-2xl shadow-lg animate-pulse">
-                ❤️
-            </div>
-            
+        <div class="glassmorphism p-8 md:p-12 max-w-md w-full mx-4 transform transition-all duration-500">
             <div class="text-center mb-8">
-                <div class="inline-block mb-4">
-                    <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-4xl shadow-lg mb-4 animate-pulse">
-                        🔐
-                    </div>
-                </div>
-                <h1 class="dancing text-5xl md:text-7xl text-rose-600 mb-4 drop-shadow-lg">
-                    For My Love
-                </h1>
-                <div class="flex items-center justify-center gap-2 mb-4">
-                    <div class="h-px w-16 bg-gradient-to-r from-transparent via-rose-400 to-transparent"></div>
-                    <span class="text-rose-500 text-2xl">✦</span>
-                    <div class="h-px w-16 bg-gradient-to-r from-transparent via-rose-400 to-transparent"></div>
-                </div>
-                <p class="text-gray-700 text-lg font-light">Enter the secret to unlock your gift ❤️</p>
+                <div class="text-6xl mb-4 heart-beat">💖</div>
+                <h1 class="text-3xl md:text-4xl font-dancing text-white mb-2">Our Special Moment</h1>
+                <p class="text-white/80 text-sm">Enter the year our story began</p>
             </div>
-            
-            <div class="space-y-6">
-                <div class="relative">
-                    <div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
-                        <span class="text-rose-400 text-xl">🔑</span>
-                    </div>
+
+            <form id="loginForm" class="space-y-6">
+                <div>
                     <input 
                         type="password" 
-                        id="passwordInput"
-                        placeholder="Our secret password..."
-                        class="w-full pl-16 pr-6 py-5 rounded-2xl border-2 border-pink-300 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-200 text-center text-lg bg-white/80 backdrop-blur transition-all duration-300 placeholder:text-gray-400"
-                    />
-                </div>
-                
-                <button 
-                    onclick="checkPassword()"
-                    class="w-full bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 text-white py-5 rounded-2xl font-semibold text-lg hover:from-pink-600 hover:via-rose-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl active:scale-95 relative overflow-hidden group"
-                >
-                    <span class="relative z-10 flex items-center justify-center gap-2">
-                        Unlock My Heart
-                        <span class="group-hover:animate-ping">💕</span>
-                    </span>
-                    <div class="absolute inset-0 bg-gradient-to-r from-pink-400 to-rose-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </button>
-                
-                <p id="loginMessage" class="text-center text-sm text-rose-600 h-6 font-medium"></p>
-            </div>
-            
-            <div class="mt-8 text-center space-y-2">
-                <p class="text-gray-600 text-sm italic">Hint: It's something I say every day...</p>
-                <p class="text-gray-500 text-xs">...or a special year... or just your name 💖</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 2: Puzzle Game -->
-    <section id="puzzleSection" class="min-h-screen flex items-center justify-center relative overflow-hidden hidden">
-        <!-- Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-rose-100 via-pink-100 to-red-100"></div>
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-10 right-20 w-64 h-64 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-            <div class="absolute bottom-10 left-20 w-64 h-64 bg-rose-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-        </div>
-        
-        <div class="container mx-auto px-4 py-12 relative z-10">
-            <!-- Header -->
-            <div class="text-center mb-12 fade-in">
-                <div class="inline-block mb-6">
-                    <div class="w-24 h-24 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-5xl shadow-2xl animate-bounce">
-                        🧩
-                    </div>
-                </div>
-                <h2 class="playfair text-4xl md:text-6xl text-rose-600 font-bold mb-4 drop-shadow-lg">
-                    Complete Our Memory
-                </h2>
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <div class="h-1 w-24 bg-gradient-to-r from-transparent via-rose-400 to-rose-400 rounded-full"></div>
-                    <span class="text-rose-500 text-3xl">✦</span>
-                    <div class="h-1 w-24 bg-gradient-to-r from-rose-400 via-rose-400 to-transparent rounded-full"></div>
-                </div>
-                <p class="text-gray-700 text-xl font-light">Put the pieces of my heart back together ❤️</p>
-            </div>
-            
-            <div class="max-w-2xl mx-auto">
-                <!-- Puzzle Container -->
-                <div id="puzzleContainer" class="bg-white/40 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-10 border border-white/50">
-                    <!-- Progress Bar -->
-                    <div class="mb-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="text-sm font-semibold text-rose-600">Progress</span>
-                            <span id="progressText" class="text-sm font-semibold text-rose-600">0%</span>
-                        </div>
-                        <div class="h-3 bg-rose-100 rounded-full overflow-hidden">
-                            <div id="progressBar" class="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full transition-all duration-500 w-0"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Puzzle Grid -->
-                    <div id="puzzleGrid" class="grid grid-cols-3 gap-3 max-w-lg mx-auto aspect-square mb-6"></div>
-                    
-                    <!-- Controls -->
-                    <div class="text-center space-y-4">
-                        <div class="glass rounded-2xl p-4 inline-block">
-                            <p class="text-gray-700 font-medium mb-2">💡 How to play</p>
-                            <p class="text-sm text-gray-600">Tap two tiles to swap them</p>
-                        </div>
-                        <div>
-                            <button 
-                                onclick="shufflePuzzle()"
-                                class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-10 py-4 rounded-full font-semibold hover:from-pink-600 hover:to-rose-600 transition-all transform hover:scale-105 shadow-lg active:scale-95 inline-flex items-center gap-2"
-                            >
-                                <span class="text-xl">🔄</span>
-                                Shuffle Again
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 3: Love Letter -->
-    <section id="letterSection" class="min-h-screen flex items-center justify-center relative overflow-hidden hidden py-12">
-        <!-- Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-pink-50 via-rose-50 to-red-50"></div>
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 left-1/4 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-        </div>
-        
-        <div class="container mx-auto px-4 py-12 relative z-10">
-            <div class="max-w-3xl mx-auto glass rounded-3xl shadow-2xl p-8 md:p-16 border border-white/50">
-                <!-- Decorative Corner Elements -->
-                <div class="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-rose-300 rounded-tl-3xl"></div>
-                <div class="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-rose-300 rounded-br-3xl"></div>
-                
-                <!-- Header -->
-                <div class="text-center mb-12 relative">
-                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2">
-                        <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-3xl shadow-lg animate-pulse">
-                            💌
-                        </div>
-                    </div>
-                    <div class="pt-12">
-                        <h2 class="dancing text-5xl md:text-7xl text-rose-600 mb-6 drop-shadow-lg">
-                            My Dearest Love
-                        </h2>
-                        <div class="flex items-center justify-center gap-3">
-                            <div class="h-1 w-32 bg-gradient-to-r from-transparent via-pink-500 to-pink-500 rounded-full"></div>
-                            <span class="text-rose-500 text-2xl">♥</span>
-                            <div class="h-1 w-32 bg-gradient-to-r from-pink-500 via-pink-500 to-transparent rounded-full"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Letter Content -->
-                <div class="space-y-8 text-gray-700 leading-relaxed text-lg md:text-xl">
-                    <p class="fade-in first-letter:text-7xl first-letter:font-bold first-letter:text-rose-600 first-letter:mr-3 first-letter:float-left" style="animation-delay: 0.3s;">
-                        Every moment with you feels like a beautiful dream I never want to wake up from. From the first time I saw you, I knew my life would never be the same. You walked into my world and painted it with colors I never knew existed.
-                    </p>
-                    
-                    <div class="relative pl-6 border-l-4 border-rose-300 fade-in" style="animation-delay: 0.6s;">
-                        <p class="italic text-rose-700">
-                            "You are my sunrise on the darkest days, my laughter in moments of silence, and my peace in the chaos of life."
-                        </p>
-                    </div>
-                    
-                    <p class="fade-in" style="animation-delay: 0.9s;">
-                        Loving you is the easiest and most natural thing I've ever done. You make me want to be better, to dream bigger, and to love deeper. With you, I've found not just my partner, but my home, my safe place, my forever.
-                    </p>
-                    
-                    <p class="fade-in" style="animation-delay: 1.2s;">
-                        Thank you for being my partner, my best friend, and my everything. Thank you for choosing me every single day, for believing in us, and for filling my life with so much love, joy, and happiness that my heart could burst.
-                    </p>
-                    
-                    <div class="text-center mt-12 fade-in" style="animation-delay: 1.5s;">
-                        <div class="inline-block bg-gradient-to-r from-pink-100 to-rose-100 rounded-3xl p-8 shadow-xl">
-                            <p class="text-3xl md:text-4xl dancing text-rose-600 font-bold mb-2">
-                                Happy Anniversary
-                            </p>
-                            <p class="text-xl text-gray-600">
-                                my forever love ❤️
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Continue Button -->
-                <div class="text-center mt-12">
-                    <button 
-                        onclick="showGallery()"
-                        class="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 text-white px-12 py-5 rounded-full font-semibold text-lg hover:from-pink-600 hover:via-rose-600 hover:to-red-600 transition-all transform hover:scale-105 shadow-2xl active:scale-95 inline-flex items-center gap-3 group"
+                        id="password" 
+                        class="w-full px-6 py-4 rounded-full text-center text-xl font-semibold bg-white/20 border-2 border-white/30 text-white placeholder-white/60 focus:outline-none focus:border-white/60 transition-all"
+                        placeholder="💝 _ _ _ _"
+                        maxlength="4"
+                        autocomplete="off"
                     >
-                        Continue to Our Memories
-                        <span class="group-hover:translate-x-1 transition-transform">💕</span>
-                    </button>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: Gallery -->
-    <section id="gallerySection" class="min-h-screen relative overflow-hidden hidden py-16">
-        <!-- Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-rose-100 via-pink-100 to-red-100"></div>
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-            <div class="absolute top-40 right-20 w-72 h-72 bg-rose-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-            <div class="absolute bottom-20 left-1/3 w-72 h-72 bg-red-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
-        </div>
-        
-        <div class="container mx-auto px-4 relative z-10">
-            <!-- Header -->
-            <div class="text-center mb-16 fade-in">
-                <div class="inline-block mb-6">
-                    <div class="w-24 h-24 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-5xl shadow-2xl animate-pulse">
-                        📸
-                    </div>
-                </div>
-                <h2 class="playfair text-4xl md:text-6xl text-rose-600 font-bold mb-4 drop-shadow-lg">
-                    Our Beautiful Journey
-                </h2>
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <div class="h-1 w-24 bg-gradient-to-r from-transparent via-rose-400 to-rose-400 rounded-full"></div>
-                    <span class="text-rose-500 text-3xl">✦</span>
-                    <div class="h-1 w-24 bg-gradient-to-r from-rose-400 via-rose-400 to-transparent rounded-full"></div>
-                </div>
-                <p class="text-gray-700 text-xl font-light">Every picture tells our story ❤️</p>
-            </div>
-            
-            <!-- Gallery Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
-                <!-- Memory Card 1 -->
-                <div class="gallery-item group" onclick="openModal(0)">
-                    <div class="glass rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-white/50">
-                        <div class="relative aspect-square bg-gradient-to-br from-pink-300 via-rose-300 to-pink-400 flex items-center justify-center overflow-hidden">
-                            <span class="text-8xl group-hover:scale-125 transition-transform duration-500">📸</span>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                        <div class="p-6 bg-white/80 backdrop-blur">
-                            <div class="flex items-start justify-between mb-3">
-                                <h3 class="font-bold text-xl text-rose-600">Our First Moments</h3>
-                                <span class="text-2xl">✨</span>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed">The day everything changed...</p>
-                            <div class="mt-4 flex items-center text-rose-500 text-sm font-semibold">
-                                <span>View memory</span>
-                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Memory Card 2 -->
-                <div class="gallery-item group" onclick="openModal(1)">
-                    <div class="glass rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-white/50">
-                        <div class="relative aspect-square bg-gradient-to-br from-rose-300 via-red-300 to-rose-400 flex items-center justify-center overflow-hidden">
-                            <span class="text-8xl group-hover:scale-125 transition-transform duration-500">❤️</span>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                        <div class="p-6 bg-white/80 backdrop-blur">
-                            <div class="flex items-start justify-between mb-3">
-                                <h3 class="font-bold text-xl text-rose-600">Why I Love You</h3>
-                                <span class="text-2xl">💖</span>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed">Your smile lights up my world</p>
-                            <div class="mt-4 flex items-center text-rose-500 text-sm font-semibold">
-                                <span>View memory</span>
-                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Memory Card 3 -->
-                <div class="gallery-item group" onclick="openModal(2)">
-                    <div class="glass rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-white/50">
-                        <div class="relative aspect-square bg-gradient-to-br from-pink-300 via-rose-400 to-pink-500 flex items-center justify-center overflow-hidden">
-                            <span class="text-8xl group-hover:scale-125 transition-transform duration-500">💑</span>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                        <div class="p-6 bg-white/80 backdrop-blur">
-                            <div class="flex items-start justify-between mb-3">
-                                <h3 class="font-bold text-xl text-rose-600">Us, Always</h3>
-                                <span class="text-2xl">💞</span>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed">Together forever, no matter what</p>
-                            <div class="mt-4 flex items-center text-rose-500 text-sm font-semibold">
-                                <span>View memory</span>
-                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Memory Card 4 -->
-                <div class="gallery-item group" onclick="openModal(3)">
-                    <div class="glass rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-white/50">
-                        <div class="relative aspect-square bg-gradient-to-br from-rose-300 via-pink-300 to-rose-400 flex items-center justify-center overflow-hidden">
-                            <span class="text-8xl group-hover:scale-125 transition-transform duration-500">🌹</span>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                        <div class="p-6 bg-white/80 backdrop-blur">
-                            <div class="flex items-start justify-between mb-3">
-                                <h3 class="font-bold text-xl text-rose-600">Special Moments</h3>
-                                <span class="text-2xl">✨</span>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed">Every second with you is precious</p>
-                            <div class="mt-4 flex items-center text-rose-500 text-sm font-semibold">
-                                <span>View memory</span>
-                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Memory Card 5 -->
-                <div class="gallery-item group" onclick="openModal(4)">
-                    <div class="glass rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-white/50">
-                        <div class="relative aspect-square bg-gradient-to-br from-pink-400 via-rose-300 to-pink-400 flex items-center justify-center overflow-hidden">
-                            <span class="text-8xl group-hover:scale-125 transition-transform duration-500">💝</span>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                        <div class="p-6 bg-white/80 backdrop-blur">
-                            <div class="flex items-start justify-between mb-3">
-                                <h3 class="font-bold text-xl text-rose-600">My Favorite Person</h3>
-                                <span class="text-2xl">🥰</span>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed">You make everything better</p>
-                            <div class="mt-4 flex items-center text-rose-500 text-sm font-semibold">
-                                <span>View memory</span>
-                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Memory Card 6 -->
-                <div class="gallery-item group" onclick="openModal(5)">
-                    <div class="glass rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-white/50">
-                        <div class="relative aspect-square bg-gradient-to-br from-rose-400 via-red-300 to-rose-400 flex items-center justify-center overflow-hidden">
-                            <span class="text-8xl group-hover:scale-125 transition-transform duration-500">💕</span>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                        <div class="p-6 bg-white/80 backdrop-blur">
-                            <div class="flex items-start justify-between mb-3">
-                                <h3 class="font-bold text-xl text-rose-600">Forever & Always</h3>
-                                <span class="text-2xl">♾️</span>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed">This is just the beginning</p>
-                            <div class="mt-4 flex items-center text-rose-500 text-sm font-semibold">
-                                <span>View memory</span>
-                                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Continue Button -->
-            <div class="text-center">
+                <div id="errorMessage" class="text-center text-white/90 text-sm h-6"></div>
                 <button 
-                    onclick="showFinalSurprise()"
-                    class="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 text-white px-12 py-5 rounded-full font-semibold text-lg hover:from-pink-600 hover:via-rose-600 hover:to-red-600 transition-all transform hover:scale-105 shadow-2xl active:scale-95 inline-flex items-center gap-3 group"
+                    type="submit"
+                    class="w-full py-4 bg-white/30 hover:bg-white/40 text-white font-semibold rounded-full transition-all transform hover:scale-105 border-2 border-white/40"
                 >
-                    One More Surprise
-                    <span class="group-hover:rotate-12 transition-transform">💖</span>
+                    Unlock Our Memories 💕
                 </button>
-            </div>
-        </div>
-    </section>
+            </form>
 
-    <!-- Section 5: Final Surprise -->
-    <section id="finalSection" class="min-h-screen flex items-center justify-center relative overflow-hidden hidden">
-        <!-- Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-pink-200 via-rose-200 to-red-200"></div>
-        <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-10 left-10 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-            <div class="absolute top-20 right-10 w-96 h-96 bg-rose-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-            <div class="absolute bottom-10 left-1/3 w-96 h-96 bg-red-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-        </div>
-        
-        <!-- Floating hearts container -->
-        <div id="heartsContainer" class="absolute inset-0 pointer-events-none"></div>
-        
-        <div class="container mx-auto px-4 py-12 relative z-10">
-            <div class="max-w-5xl mx-auto text-center">
-                <div class="glass rounded-3xl shadow-2xl p-8 md:p-20 border border-white/50">
-                    <!-- Decorative Top -->
-                    <div class="flex justify-center mb-8">
-                        <div class="flex gap-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-3xl shadow-lg animate-bounce">💕</div>
-                            <div class="w-20 h-20 bg-gradient-to-br from-rose-500 to-red-500 rounded-full flex items-center justify-center text-4xl shadow-xl animate-pulse">❤️</div>
-                            <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-3xl shadow-lg animate-bounce animation-delay-2000">💖</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Main Message -->
-                    <h1 class="dancing text-6xl md:text-9xl text-rose-600 mb-8 drop-shadow-2xl pulse-slow">
-                        Happy Anniversary
-                    </h1>
-                    
-                    <div class="flex items-center justify-center gap-4 mb-8">
-                        <div class="h-1 w-32 bg-gradient-to-r from-transparent via-rose-500 to-rose-500 rounded-full"></div>
-                        <span class="text-rose-500 text-4xl">♥</span>
-                        <div class="h-1 w-32 bg-gradient-to-r from-rose-500 via-rose-500 to-transparent rounded-full"></div>
-                    </div>
-                    
-                    <h2 class="playfair text-3xl md:text-5xl text-gray-800 font-bold mb-12">
-                        My Love ❤️
-                    </h2>
-                    
-                    <!-- Message Content -->
-                    <div class="space-y-8 text-gray-700 text-lg md:text-2xl leading-relaxed mb-12 max-w-3xl mx-auto">
-                        <p class="fade-in">
-                            Today marks another beautiful chapter in our love story. Every day with you is a gift, and I promise to cherish you, support you, and love you more with each passing moment.
-                        </p>
-                        
-                        <div class="bg-gradient-to-r from-pink-100 via-rose-100 to-pink-100 rounded-3xl p-8 shadow-xl">
-                            <p class="text-3xl md:text-4xl dancing text-rose-600 font-bold">
-                                Here's to forever with you, my darling 💕
-                            </p>
-                        </div>
-                        
-                        <blockquote class="relative pl-8 border-l-4 border-rose-400">
-                            <p class="italic text-gray-600 text-xl">
-                                "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."
-                            </p>
-                            <footer class="text-sm text-gray-500 mt-2">- Maya Angelou</footer>
-                        </blockquote>
-                    </div>
-                    
-                    <!-- Music Controls -->
-                    <div class="space-y-6">
-                        <button 
-                            onclick="toggleMusic()"
-                            id="musicButton"
-                            class="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 text-white px-10 py-4 rounded-full font-semibold text-lg hover:from-pink-600 hover:via-rose-600 hover:to-red-600 transition-all transform hover:scale-105 shadow-2xl active:scale-95 inline-flex items-center gap-3 group"
-                        >
-                            <span class="text-2xl group-hover:scale-125 transition-transform">🎵</span>
-                            Play Our Song
-                        </button>
-                        
-                        <p class="text-sm text-gray-500 italic max-w-md mx-auto">
-                            Add your favorite song to make this moment even more magical ✨
-                        </p>
-                    </div>
-                    
-                    <!-- Bottom Decoration -->
-                    <div class="mt-12 flex justify-center gap-2">
-                        <span class="text-3xl animate-pulse">💕</span>
-                        <span class="text-3xl animate-pulse animation-delay-1000">❤️</span>
-                        <span class="text-3xl animate-pulse animation-delay-2000">💖</span>
-                        <span class="text-3xl animate-pulse animation-delay-3000">💝</span>
-                        <span class="text-3xl animate-pulse animation-delay-4000">💕</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal for Gallery -->
-    <div id="galleryModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
-        <div class="absolute inset-0 modal-backdrop" onclick="closeModal()"></div>
-        
-        <div class="relative max-w-4xl w-full transform transition-all duration-500 scale-95 opacity-0" id="modalInner">
-            <!-- Close Button -->
-            <button 
-                onclick="closeModal()"
-                class="absolute -top-16 right-0 w-12 h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white text-2xl hover:bg-white/30 transition-all hover:rotate-90 duration-300"
-            >
-                ✕
-            </button>
-            
-            <!-- Modal Content -->
-            <div class="glass rounded-3xl p-8 md:p-12 max-h-[85vh] overflow-y-auto border border-white/50 shadow-2xl">
-                <div id="modalContent" class="text-center">
-                    <!-- Content will be injected here -->
-                </div>
+            <div class="text-center mt-6 text-white/60 text-xs">
+                Made with endless love by Adi ❤️
             </div>
         </div>
     </div>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+    <!-- Main Website -->
+    <div id="mainSite" class="hidden">
+        <!-- Floating Particles -->
+        <div id="particles"></div>
+
+        <!-- Hero Section -->
+        <section class="min-h-screen main-site-bg flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-20 left-20 text-9xl">💕</div>
+                <div class="absolute bottom-20 right-20 text-9xl">💖</div>
+                <div class="absolute top-40 right-40 text-6xl">✨</div>
+            </div>
+            
+            <div class="text-center z-10 px-4">
+                <div class="mb-8 text-8xl heart-beat">💖</div>
+                <h1 class="text-5xl md:text-7xl font-playfair font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500 mb-6 glow">
+                    Happy Anniversary, My Love
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8 font-light leading-relaxed">
+                    Every moment with you feels like a beautiful dream come true. You are my greatest adventure, my deepest love, and my forever home. Thank you for filling my life with endless joy and unconditional love.
+                </p>
+                <p class="text-lg text-pink-600 font-dancing text-3xl">Forever yours, Adi ❤️</p>
+                
+                <div class="mt-12">
+                    <a href="#story" class="inline-block px-8 py-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full font-semibold hover:shadow-2xl transform hover:scale-105 transition-all">
+                        Explore Our Journey 💕
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section id="story" class="py-20 px-4 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500 mb-16 fade-up">
+                    Our Beautiful Story ✨
+                </h2>
+
+                <div class="relative">
+                    <div class="timeline-line hidden md:block"></div>
+
+                    <!-- Timeline Item 1 -->
+                    <div class="mb-16 flex flex-col md:flex-row items-center fade-up">
+                        <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0">
+                            <div class="bg-gradient-to-br from-pink-50 to-rose-50 p-8 rounded-2xl shadow-lg">
+                                <h3 class="text-2xl font-playfair font-bold text-pink-600 mb-4">The First Glance 👀</h3>
+                                <p class="text-gray-700 leading-relaxed">
+                                    The moment I saw you, time stood still. Your smile lit up the entire room, and I knew my life would never be the same. It was like finding a piece of my soul I didn't know was missing.
+                                </p>
+                                <p class="text-sm text-pink-500 mt-4 font-dancing text-xl">2004</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center">
+                            <div class="timeline-dot"></div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="mb-16 flex flex-col md:flex-row-reverse items-center fade-up">
+                        <div class="md:w-1/2 md:pl-12 mb-8 md:mb-0">
+                            <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg">
+                                <h3 class="text-2xl font-playfair font-bold text-purple-600 mb-4">First Date Magic 💫</h3>
+                                <p class="text-gray-700 leading-relaxed">
+                                    Our first date was pure magic. Hours felt like minutes as we talked, laughed, and discovered how perfectly our hearts aligned. I fell for you more with every word, every smile, every moment.
+                                </p>
+                                <p class="text-sm text-purple-500 mt-4 font-dancing text-xl">The beginning of forever</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center">
+                            <div class="timeline-dot"></div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="mb-16 flex flex-col md:flex-row items-center fade-up">
+                        <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0">
+                            <div class="bg-gradient-to-br from-rose-50 to-red-50 p-8 rounded-2xl shadow-lg">
+                                <h3 class="text-2xl font-playfair font-bold text-rose-600 mb-4">Growing Together 🌹</h3>
+                                <p class="text-gray-700 leading-relaxed">
+                                    Through every laugh, every tear, every challenge and celebration, we've grown stronger together. You've taught me what it means to truly love and be loved unconditionally.
+                                </p>
+                                <p class="text-sm text-rose-500 mt-4 font-dancing text-xl">Every day with you</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center">
+                            <div class="timeline-dot"></div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center fade-up">
+                        <div class="md:w-1/2 md:pl-12 mb-8 md:mb-0">
+                            <div class="bg-gradient-to-br from-pink-100 to-rose-100 p-8 rounded-2xl shadow-lg border-2 border-pink-300">
+                                <h3 class="text-2xl font-playfair font-bold text-pink-700 mb-4">Forever Starts Now 💍</h3>
+                                <p class="text-gray-700 leading-relaxed">
+                                    Today marks another beautiful chapter in our story, but it's just the beginning. I promise to love you more each day, to be your partner in all things, and to make you smile for the rest of our lives.
+                                </p>
+                                <p class="text-sm text-pink-600 mt-4 font-dancing text-xl">This is our moment ✨</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center">
+                            <div class="timeline-dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memory Gallery -->
+        <section id="gallery" class="py-20 px-4 main-site-bg">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500 mb-16 fade-up">
+                    Our Precious Memories 📸
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Gallery Item 1 -->
+                    <div class="gallery-item bg-gradient-to-br from-pink-200 to-rose-200 h-64 cursor-pointer fade-up" onclick="openImageModal(1)">
+                        <div class="w-full h-full flex items-center justify-center text-6xl">
+                            💑
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 2 -->
+                    <div class="gallery-item bg-gradient-to-br from-purple-200 to-pink-200 h-64 cursor-pointer fade-up" onclick="openImageModal(2)">
+                        <div class="w-full h-full flex items-center justify-center text-6xl">
+                            🌹
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 3 -->
+                    <div class="gallery-item bg-gradient-to-br from-rose-200 to-red-200 h-64 cursor-pointer fade-up" onclick="openImageModal(3)">
+                        <div class="w-full h-full flex items-center justify-center text-6xl">
+                            💝
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 4 -->
+                    <div class="gallery-item bg-gradient-to-br from-pink-300 to-rose-300 h-64 cursor-pointer fade-up" onclick="openImageModal(4)">
+                        <div class="w-full h-full flex items-center justify-center text-6xl">
+                            🎂
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 5 -->
+                    <div class="gallery-item bg-gradient-to-br from-purple-300 to-pink-300 h-64 cursor-pointer fade-up" onclick="openImageModal(5)">
+                        <div class="w-full h-full flex items-center justify-center text-6xl">
+                            🌟
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 6 -->
+                    <div class="gallery-item bg-gradient-to-br from-rose-300 to-red-300 h-64 cursor-pointer fade-up" onclick="openImageModal(6)">
+                        <div class="w-full h-full flex items-center justify-center text-6xl">
+                            💖
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-center text-gray-500 mt-8 text-sm">
+                    Click on any memory to see it larger 💕
+                </p>
+            </div>
+        </section>
+
+        <!-- Puzzle Section -->
+        <section id="puzzle" class="py-20 px-4 bg-white">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500 mb-8 fade-up">
+                    Complete Our Love Puzzle 🧩
+                </h2>
+                <p class="text-center text-gray-600 mb-12 fade-up">
+                    Click two pieces to swap them and reveal the hidden message
+                </p>
+
+                <div id="puzzleGrid" class="grid grid-cols-3 gap-2 max-w-md mx-auto mb-8">
+                    <!-- Puzzle pieces will be generated here -->
+                </div>
+
+                <div id="puzzleMessage" class="hidden text-center">
+                    <div class="bg-gradient-to-r from-pink-100 to-rose-100 p-8 rounded-2xl shadow-lg">
+                        <p class="text-2xl md:text-3xl font-dancing text-pink-600 mb-4">
+                            "You complete me in every way possible 💕"
+                        </p>
+                        <p class="text-gray-700">
+                            Just like this puzzle, every piece of my life makes sense with you in it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Letter Section -->
+        <section id="letter" class="py-20 px-4 main-site-bg">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500 mb-16 fade-up">
+                    A Letter From My Heart 💌
+                </h2>
+
+                <div class="love-letter rounded-2xl shadow-2xl fade-up">
+                    <p class="font-dancing text-2xl text-pink-600 mb-6">My Dearest Love,</p>
+                    
+                    <p class="mb-6">
+                        As I sit here thinking about all the moments we've shared, my heart overflows with gratitude and love. You are the answer to prayers I didn't even know I was saying. Every day with you is a gift I cherish more than words can express.
+                    </p>
+
+                    <p class="mb-6">
+                        You've shown me what it means to be truly loved, to be seen for who I am, and to be cherished in ways I never imagined possible. Your laughter is my favorite sound, your smile is my favorite sight, and your happiness is my greatest mission.
+                    </p>
+
+                    <p class="mb-6">
+                        Through the highs and lows, the adventures and quiet moments, you've been my constant, my safe haven, my home. You make ordinary days extraordinary and difficult times bearable. With you, I've discovered a love so deep and true that it has transformed my entire world.
+                    </p>
+
+                    <p class="mb-6">
+                        I promise to love you fiercely and gently, to support your dreams, to hold you when you need comfort, and to celebrate you every single day. I promise to grow with you, to laugh with you, to build a beautiful life with you.
+                    </p>
+
+                    <p class="mb-8">
+                        You are my today and all of my tomorrows. Thank you for being mine, for choosing me, for loving me. This is just the beginning of forever, my love.
+                    </p>
+
+                    <p class="font-dancing text-3xl text-right text-pink-600">
+                        Forever yours,<br>
+                        Adi 💍
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-20 px-4 bg-gradient-to-br from-pink-500 to-rose-500 text-white">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-8 fade-up">
+                    One Last Thing... 💌
+                </h2>
+                <p class="text-xl mb-12 opacity-90 fade-up">
+                    I made something special just for you
+                </p>
+                <button 
+                    onclick="openFinalModal()"
+                    class="px-12 py-5 bg-white text-pink-600 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-110 transition-all sparkle"
+                >
+                    Click to See 💖
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-8 text-center">
+            <p class="text-lg font-dancing">Made with endless love by Adi ❤️</p>
+            <p class="text-sm text-gray-400 mt-2">For the most amazing person in the world 💕</p>
+        </footer>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content max-w-3xl">
+            <button onclick="closeImageModal()" class="absolute top-4 right-4 text-4xl text-gray-500 hover:text-gray-700 transition-colors">
+                ×
+            </button>
+            <div id="modalImageContent" class="text-center">
+                <!-- Image content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Surprise Modal -->
+    <div id="finalModal" class="modal">
+        <div class="modal-content">
+            <button onclick="closeFinalModal()" class="absolute top-4 right-4 text-4xl text-gray-500 hover:text-gray-700 transition-colors">
+                ×
+            </button>
+            <div class="text-center">
+                <div class="text-8xl mb-6 heart-beat">💖</div>
+                <h3 class="text-3xl font-playfair font-bold text-pink-600 mb-6">
+                    You Are My Everything
+                </h3>
+                <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                    I created this website because words alone could never capture how much you mean to me. You deserve to know, every single day, that you are loved beyond measure, cherished beyond words, and valued beyond compare.
+                </p>
+                <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                    Thank you for being my partner, my best friend, my love. Here's to us, to our journey, and to forever together.
+                </p>
+                <p class="text-2xl font-dancing text-pink-600">
+                    I love you more than infinity 💕
+                </p>
+                <p class="text-xl font-dancing text-pink-500 mt-4">
+                    - Adi ❤️
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Login Logic
+        const loginForm = document.getElementById('loginForm');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('errorMessage');
+        const loginScreen = document.getElementById('loginScreen');
+        const mainSite = document.getElementById('mainSite');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const password = passwordInput.value;
+
+            if (password === '2004') {
+                errorMessage.style.color = '#fff';
+                errorMessage.textContent = 'Welcome to our world, my love... 💕';
+                
+                setTimeout(() => {
+                    loginScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loginScreen.classList.add('hidden');
+                        mainSite.classList.remove('hidden');
+                        createParticles();
+                        observeElements();
+                    }, 500);
+                }, 1000);
+            } else {
+                errorMessage.style.color = '#ffcccb';
+                errorMessage.textContent = "That's not our memory yet 💔";
+                passwordInput.value = '';
+                passwordInput.classList.add('shake');
+                setTimeout(() => passwordInput.classList.remove('shake'), 500);
+            }
+        });
+
+        // Create floating hearts for login page
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            const hearts = ['💕', '💖', '💗', '💓', '💝', '❤️'];
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        createFloatingHearts();
+
+        // Create floating particles for main site
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particles = ['✨', '💫', '⭐', '🌟', '💕', '💖'];
+            
+            setInterval(() => {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.textContent = particles[Math.floor(Math.random() * particles.length)];
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                container.appendChild(particle);
+
+                setTimeout(() => particle.remove(), 8000);
+            }, 500);
+        }
+
+        // Intersection Observer for fade-up animations
+        function observeElements() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        }
+
+        // Puzzle Game Logic
+        const puzzleData = [
+            { id: 1, emoji: '💕', correct: 1 },
+            { id: 2, emoji: '❤️', correct: 2 },
+            { id: 3, emoji: '💖', correct: 3 },
+            { id: 4, emoji: '💗', correct: 4 },
+            { id: 5, emoji: '💓', correct: 5 },
+            { id: 6, emoji: '💝', correct: 6 },
+            { id: 7, emoji: '💘', correct: 7 },
+            { id: 8, emoji: '💞', correct: 8 },
+            { id: 9, emoji: '💟', correct: 9 }
+        ];
+
+        let puzzleState = [...puzzleData];
+        let selectedPieces = [];
+
+        function initPuzzle() {
+            // Shuffle puzzle
+            for (let i = puzzleState.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [puzzleState[i], puzzleState[j]] = [puzzleState[j], puzzleState[i]];
+            }
+
+            const grid = document.getElementById('puzzleGrid');
+            grid.innerHTML = '';
+
+            puzzleState.forEach((piece, index) => {
+                const div = document.createElement('div');
+                div.className = 'puzzle-piece bg-gradient-to-br from-pink-200 to-rose-200 h-24 md:h-32 flex items-center justify-center text-4xl md:text-5xl rounded-lg';
+                div.textContent = piece.emoji;
+                div.dataset.index = index;
+                div.onclick = () => selectPiece(index);
+                grid.appendChild(div);
+            });
+        }
+
+        function selectPiece(index) {
+            const pieces = document.querySelectorAll('.puzzle-piece');
+            
+            if (selectedPieces.includes(index)) {
+                selectedPieces = selectedPieces.filter(i => i !== index);
+                pieces[index].classList.remove('selected');
+            } else {
+                selectedPieces.push(index);
+                pieces[index].classList.add('selected');
+            }
+
+            if (selectedPieces.length === 2) {
+                swapPieces(selectedPieces[0], selectedPieces[1]);
+                selectedPieces = [];
+            }
+        }
+
+        function swapPieces(index1, index2) {
+            [puzzleState[index1], puzzleState[index2]] = [puzzleState[index2], puzzleState[index1]];
+            
+            const pieces = document.querySelectorAll('.puzzle-piece');
+            pieces[index1].classList.remove('selected');
+            pieces[index2].classList.remove('selected');
+
+            pieces[index1].textContent = puzzleState[index1].emoji;
+            pieces[index2].textContent = puzzleState[index2].emoji;
+
+            checkPuzzle();
+        }
+
+        function checkPuzzle() {
+            const isComplete = puzzleState.every((piece, index) => piece.correct === index + 1);
+            
+            if (isComplete) {
+                setTimeout(() => {
+                    document.getElementById('puzzleGrid').style.opacity = '0.3';
+                    document.getElementById('puzzleMessage').classList.remove('hidden');
+                    document.getElementById('puzzleMessage').classList.add('fade-up', 'visible');
+                }, 500);
+            }
+        }
+
+        initPuzzle();
+
+        // Modal Functions
+        function openImageModal(imageNum) {
+            const modal = document.getElementById('imageModal');
+            const content = document.getElementById('modalImageContent');
+            
+            const messages = [
+                { emoji: '💑', text: 'Every moment with you is a treasure' },
+                { emoji: '🌹', text: 'You make life beautiful' },
+                { emoji: '💝', text: 'My heart belongs to you' },
+                { emoji: '🎂', text: 'Celebrating every moment together' },
+                { emoji: '🌟', text: 'You light up my world' },
+                { emoji: '💖', text: 'Forever and always' }
+            ];
+
+            const item = messages[imageNum - 1];
+            content.innerHTML = `
+                <div class="text-9xl mb-6">${item.emoji}</div>
+                <p class="text-2xl font-dancing text-pink-600">${item.text}</p>
+            `;
+            
+            modal.classList.add('active');
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').classList.remove('active');
+        }
+
+        function openFinalModal() {
+            document.getElementById('finalModal').classList.add('active');
+        }
+
+        function closeFinalModal() {
+            document.getElementById('finalModal').classList.remove('active');
+        }
+
+        // Close modals on outside click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Add shake animation
+        const style = document.createElement('style');
+        style.textContent = `
+            .shake {
+                animation: shake 0.5s;
+            }
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-10px); }
+                75% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
