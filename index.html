@@ -606,24 +606,25 @@
                 <div class="divider max-w-md mx-auto"></div>
             </div>
             
-            <!-- Image Upload Section -->
+            <!-- Image Upload Section - Auto-loads puzzle-image.jpg -->
             <div id="uploadSection" class="glass-card-white rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 mb-8 md:mb-12 shadow-2xl animate__animated animate__fadeInUp">
                 <h2 class="luxury-title text-2xl sm:text-3xl md:text-4xl text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4 md:mb-6">
-                    Upload Our Memory
+                    Loading Your Special Memory
                 </h2>
                 <div class="divider max-w-xs mx-auto"></div>
                 <p class="elegant-text text-gray-600 text-center text-base sm:text-lg mb-6 md:mb-8 mt-4 md:mt-6 px-4">
-                    Choose a special photo of us to create your puzzle
+                    Your photo puzzle is being prepared...
                 </p>
                 <div class="flex flex-col items-center">
-                    <input type="file" id="imageUpload" accept="puzzle-image.jpg" class="hidden">
-                    <label for="imageUpload" class="cursor-pointer premium-btn text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg shadow-2xl">
-                        <span class="relative z-10">📷 CHOOSE PHOTO</span>
-                    </label>
-                    <div class="mt-6 md:mt-8 text-center">
-                        <p class="text-xs sm:text-sm text-gray-500 mb-3">Or use the demo image to try it out</p>
-                        <button onclick="useDemoImage()" class="text-purple-600 font-semibold underline hover:text-purple-800 transition-colors text-sm sm:text-base">
-                            Use Demo Image →
+                    <div id="loadingSpinner" class="inline-block">
+                        <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-purple-600"></div>
+                    </div>
+                    <p id="loadingText" class="text-sm text-gray-500 mt-4">Loading puzzle-image.jpg...</p>
+                    <div id="errorText" class="hidden mt-4 p-4 bg-red-50 rounded-xl border border-red-200">
+                        <p class="text-red-600 text-sm font-semibold">⚠️ Image not found</p>
+                        <p class="text-red-500 text-xs mt-2">Please place 'puzzle-image.jpg' in the same folder as this HTML file</p>
+                        <button onclick="useDemoImage()" class="mt-4 text-purple-600 font-semibold underline hover:text-purple-800 transition-colors text-sm">
+                            Use Demo Image Instead →
                         </button>
                     </div>
                 </div>
@@ -937,21 +938,33 @@
         let moveCount = 0;
         let isCompleted = false;
         
-        // Image upload handler
-        document.getElementById('imageUpload').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    puzzleImage = new Image();
-                    puzzleImage.onload = function() {
-                        initializePuzzle();
-                    };
-                    puzzleImage.src = event.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
+        // Auto-load puzzle-image.jpg when page loads
+        window.addEventListener('load', function() {
+            loadPuzzleImage();
         });
+        
+        // Function to load the puzzle image
+        function loadPuzzleImage() {
+            puzzleImage = new Image();
+            puzzleImage.crossOrigin = "anonymous"; // Enable CORS if needed
+            
+            puzzleImage.onload = function() {
+                // Image loaded successfully
+                document.getElementById('loadingSpinner').classList.add('hidden');
+                document.getElementById('loadingText').classList.add('hidden');
+                initializePuzzle();
+            };
+            
+            puzzleImage.onerror = function() {
+                // Image failed to load, show error
+                document.getElementById('loadingSpinner').classList.add('hidden');
+                document.getElementById('loadingText').classList.add('hidden');
+                document.getElementById('errorText').classList.remove('hidden');
+            };
+            
+            // Try to load puzzle-image.jpg from the same directory
+            puzzleImage.src = 'puzzle-image.jpg';
+        }
         
         // Demo image or YOUR CUSTOM IMAGE
         // TO USE YOUR OWN IMAGE: Replace the demo image code below with:
