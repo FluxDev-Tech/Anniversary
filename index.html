@@ -3,1076 +3,595 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Anniversary, My Love 💖</title>
+    <title>Happy Anniversary My Love ❤️</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
         body {
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
-
-        .font-playfair {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .font-dancing {
+        
+        .cursive {
             font-family: 'Dancing Script', cursive;
         }
-
-        .font-vibes {
-            font-family: 'Great Vibes', cursive;
-        }
-
-        /* Login Page Styles */
-        .login-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 75%, #ffd1ff 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .login-bg::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: backgroundMove 20s linear infinite;
-        }
-
-        @keyframes backgroundMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .floating-heart {
-            position: absolute;
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.7;
-            pointer-events: none;
-            filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.5));
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-30px) rotate(5deg); }
-            50% { transform: translateY(-60px) rotate(-5deg); }
-            75% { transform: translateY(-30px) rotate(3deg); }
-        }
-
-        .glassmorphism {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-        }
-
-        /* Main Site Styles */
-        .main-site-bg {
-            background: linear-gradient(to bottom, #ffeef8, #fff5f7, #ffffff);
-        }
-
-        .particle {
-            position: fixed;
-            pointer-events: none;
-            animation: rise 10s infinite;
-            z-index: 1;
-        }
-
-        @keyframes rise {
-            0% { transform: translateY(100vh) scale(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) scale(1.5) rotate(360deg); opacity: 0; }
-        }
-
-        .glow {
-            text-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
-        }
-
-        .hero-gradient {
-            background: linear-gradient(135deg, #ffeef8 0%, #ffd1ff 50%, #ffe5f1 100%);
-        }
-
-        /* Timeline Styles */
-        .timeline-container {
-            position: relative;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #f093fb, #f5576c);
-        }
-
-        @media (min-width: 768px) {
-            .timeline-line {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-
-        .timeline-dot {
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 0 25px rgba(245, 87, 108, 0.7);
-            position: absolute;
-            left: 8px;
-            z-index: 10;
-        }
-
-        @media (min-width: 768px) {
-            .timeline-dot {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-
-        /* Gallery Styles */
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(245, 87, 108, 0.3);
-        }
-
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(240, 147, 251, 0.3), rgba(245, 87, 108, 0.3));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .gallery-item:hover::before {
-            opacity: 1;
-        }
-
-        .gallery-item::after {
-            content: '💕';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            font-size: 4rem;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
-        }
-
-        .gallery-item:hover::after {
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        /* Love Messages Interactive Section */
-        .message-card {
-            background: linear-gradient(135deg, #fff 0%, #ffeef8 100%);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .message-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s ease;
-        }
-
-        .message-card:hover::before {
-            left: 100%;
-        }
-
-        .message-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(245, 87, 108, 0.3);
-        }
-
-        .message-card.revealed {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-        }
-
-        /* Love Counter */
-        .counter-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 2rem;
-            color: white;
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
-        }
-
-        .counter-number {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #ffd1ff, #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Love Letter */
-        .love-letter {
-            background: linear-gradient(to bottom, #fff9fc, #ffffff);
-            border-left: 5px solid #f5576c;
-            padding: 2.5rem;
-            font-size: 1.125rem;
-            line-height: 2;
-            color: #4a4a4a;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            border-radius: 15px;
-            position: relative;
-        }
-
-        .love-letter::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 5rem;
-            color: rgba(245, 87, 108, 0.1);
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Animations */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
+        
+        .floating-hearts {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
         }
-
-        .modal.active {
-            display: flex;
+        
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0;
         }
-
-        .modal-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 30px;
-            max-width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            animation: modalSlide 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @media (min-width: 768px) {
-            .modal-content {
-                padding: 3rem;
-                max-width: 600px;
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
             }
         }
-
-        @keyframes modalSlide {
-            from { transform: scale(0.8) translateY(50px); opacity: 0; }
-            to { transform: scale(1) translateY(0); opacity: 1; }
+        
+        .puzzle-piece {
+            cursor: pointer;
+            border: 2px solid #fff;
+            transition: all 0.3s;
+            background-size: 300% 300%;
         }
-
-        .sparkle {
-            animation: sparkle 2s infinite;
+        
+        .puzzle-piece:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.15); }
+        
+        .puzzle-piece.correct {
+            border-color: #10b981;
+            animation: correctPulse 0.5s;
         }
-
-        .heart-beat {
-            animation: heartbeat 1.5s infinite;
-        }
-
-        @keyframes heartbeat {
+        
+        @keyframes correctPulse {
             0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.15); }
-            50% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
-
-        .pulse {
-            animation: pulse 2s infinite;
+        
+        .message-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            animation: slideIn 0.5s ease-out;
         }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(245, 87, 108, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(245, 87, 108, 0.8); }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
+        
+        .confetti {
+            position: fixed;
             width: 10px;
+            height: 10px;
+            background: #f00;
+            position: absolute;
+            animation: confetti-fall 3s linear forwards;
         }
-
-        ::-webkit-scrollbar-track {
-            background: #ffeef8;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #f093fb, #f5576c);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(to bottom, #f5576c, #f093fb);
-        }
-
-        /* Shake animation */
-        .shake {
-            animation: shake 0.5s;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
-            20%, 40%, 60%, 80% { transform: translateX(10px); }
-        }
-
-        /* Floating animation for hero */
-        .float-slow {
-            animation: floatSlow 8s ease-in-out infinite;
-        }
-
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Responsive Typography */
-        @media (max-width: 640px) {
-            .counter-number {
-                font-size: 2rem;
-            }
-            
-            .love-letter {
-                padding: 1.5rem;
-                font-size: 1rem;
-                line-height: 1.8;
+        
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
             }
         }
-
-        /* Loading animation */
-        .loading-heart {
-            animation: loadingHeart 1.5s infinite;
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
         }
-
-        @keyframes loadingHeart {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.3); opacity: 0.7; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .love-letter {
+            background: linear-gradient(to bottom, #fff 0%, #fff 95%, #f0f0f0 100%);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .secret-message {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scratch-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+            cursor: grab;
+        }
+        
+        canvas {
+            cursor: grabbing;
         }
     </style>
 </head>
-<body>
-    <!-- Login Screen -->
-    <div id="loginScreen" class="login-bg flex items-center justify-center p-4">
-        <!-- Floating Hearts Background -->
-        <div id="floatingHearts"></div>
+<body class="overflow-x-hidden">
+    <div class="floating-hearts" id="heartsContainer"></div>
+    
+    <!-- Main Container -->
+    <div class="relative z-10 container mx-auto px-4 py-8 max-w-6xl">
         
-        <div class="glassmorphism p-6 md:p-12 max-w-md w-full transform transition-all duration-500">
-            <div class="text-center mb-8">
-                <div class="text-6xl md:text-7xl mb-4 heart-beat">💖</div>
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-vibes text-white mb-3 leading-tight">Our Special Moment</h1>
-                <p class="text-white/90 text-sm md:text-base">Enter the year our story began</p>
-            </div>
-
-            <form id="loginForm" class="space-y-6">
-                <div>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        class="w-full px-6 py-4 md:py-5 rounded-full text-center text-xl md:text-2xl font-semibold bg-white/20 border-2 border-white/40 text-white placeholder-white/70 focus:outline-none focus:border-white focus:bg-white/30 transition-all"
-                        placeholder="💝 _ _ _ _"
-                        maxlength="4"
-                        autocomplete="off"
-                    >
-                </div>
-                <div id="errorMessage" class="text-center text-white/90 text-sm md:text-base h-6 font-medium"></div>
-                <button 
-                    type="submit"
-                    class="w-full py-4 md:py-5 bg-white/30 hover:bg-white/50 text-white font-semibold text-base md:text-lg rounded-full transition-all transform hover:scale-105 border-2 border-white/40 pulse"
-                >
-                    Unlock Our Memories 💕
+        <!-- Welcome Screen -->
+        <div id="welcomeScreen" class="min-h-screen flex items-center justify-center">
+            <div class="text-center message-card rounded-3xl p-8 md:p-12 shadow-2xl max-w-2xl">
+                <h1 class="cursive text-5xl md:text-7xl text-purple-700 mb-6 fade-in">
+                    Happy Anniversary!
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-700 mb-8 fade-in">
+                    My Dearest Love ❤️
+                </p>
+                <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed fade-in">
+                    I've created something special just for you. Complete the puzzle to unlock a heartfelt message, 
+                    and discover the surprises I've hidden throughout this page.
+                </p>
+                <button onclick="startExperience()" class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg md:text-xl font-semibold hover:from-pink-600 hover:to-purple-700 transform hover:scale-105 transition-all shadow-lg">
+                    Begin Our Journey ❤️
                 </button>
-            </form>
-
-            <div class="text-center mt-6 text-white/70 text-xs md:text-sm">
-                Made with endless love by Adi ❤️
             </div>
         </div>
-    </div>
-
-    <!-- Main Website -->
-    <div id="mainSite" class="hidden">
-        <!-- Floating Particles -->
-        <div id="particles"></div>
-
-        <!-- Hero Section -->
-        <section class="min-h-screen hero-gradient flex items-center justify-center relative overflow-hidden px-4 py-12">
-            <div class="absolute inset-0 opacity-10">
-                <div class="absolute top-10 md:top-20 left-10 md:left-20 text-6xl md:text-9xl float-slow">💕</div>
-                <div class="absolute bottom-10 md:bottom-20 right-10 md:right-20 text-6xl md:text-9xl float-slow" style="animation-delay: 1s;">💖</div>
-                <div class="absolute top-1/3 right-1/4 text-4xl md:text-6xl float-slow" style="animation-delay: 0.5s;">✨</div>
-                <div class="absolute bottom-1/3 left-1/4 text-4xl md:text-6xl float-slow" style="animation-delay: 1.5s;">💫</div>
+        
+        <!-- Main Experience -->
+        <div id="mainExperience" class="hidden">
+            
+            <!-- Header -->
+            <div class="text-center mb-8 md:mb-12 fade-in">
+                <h1 class="cursive text-4xl md:text-6xl text-white mb-4">Our Love Puzzle</h1>
+                <p class="text-white text-lg md:text-xl opacity-90">Put the pieces together, just like we did with our hearts ❤️</p>
             </div>
             
-            <div class="text-center z-10 max-w-5xl">
-                <div class="mb-6 md:mb-8 text-6xl md:text-8xl lg:text-9xl heart-beat">💖</div>
-                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-playfair font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 mb-6 md:mb-8 glow leading-tight">
-                    Happy Anniversary,<br class="hidden sm:block"> My Love
-                </h1>
-                <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 max-w-4xl mx-auto mb-6 md:mb-8 font-light leading-relaxed px-4">
-                    Every moment with you feels like a beautiful dream come true. You are my greatest adventure, my deepest love, and my forever home.
-                </p>
-                <p class="text-2xl sm:text-3xl md:text-4xl text-pink-600 font-vibes mb-8 md:mb-12">Forever yours, Adi ❤️</p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
-                    <a href="#story" class="w-full sm:w-auto px-6 md:px-10 py-4 md:py-5 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full font-semibold text-base md:text-lg hover:shadow-2xl transform hover:scale-105 transition-all">
-                        Explore Our Journey 💕
-                    </a>
-                    <a href="#messages" class="w-full sm:w-auto px-6 md:px-10 py-4 md:py-5 bg-white text-pink-600 rounded-full font-semibold text-base md:text-lg hover:shadow-2xl transform hover:scale-105 transition-all border-2 border-pink-500">
-                        Read Love Messages 💌
-                    </a>
+            <!-- Image Upload Section -->
+            <div id="uploadSection" class="message-card rounded-3xl p-6 md:p-8 mb-8 shadow-2xl">
+                <h2 class="text-2xl md:text-3xl font-semibold text-purple-700 mb-4 text-center">Upload Our Memory</h2>
+                <p class="text-gray-600 text-center mb-6">Choose a special photo of us to create your puzzle</p>
+                <div class="flex flex-col items-center">
+                    <input type="file" id="imageUpload" accept="image/*" class="hidden">
+                    <label for="imageUpload" class="cursor-pointer bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-pink-600 hover:to-purple-700 transition-all shadow-lg">
+                        📷 Choose Photo
+                    </label>
+                    <p class="text-sm text-gray-500 mt-4">Or use the demo image to try it out!</p>
+                    <button onclick="useDemoImage()" class="mt-2 text-purple-600 underline hover:text-purple-800">
+                        Use Demo Image
+                    </button>
                 </div>
             </div>
-        </section>
-
-        <!-- Love Counter Section -->
-        <section class="py-12 md:py-20 px-4 bg-white">
-            <div class="max-w-6xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                    <div class="counter-box text-center fade-up">
-                        <div class="text-4xl md:text-5xl mb-3 md:mb-4">💝</div>
-                        <div class="counter-number" id="daysCounter">0</div>
-                        <div class="text-base md:text-lg text-white/90 mt-2">Days Together</div>
-                    </div>
-                    <div class="counter-box text-center fade-up" style="animation-delay: 0.2s;">
-                        <div class="text-4xl md:text-5xl mb-3 md:mb-4">💖</div>
-                        <div class="counter-number">∞</div>
-                        <div class="text-base md:text-lg text-white/90 mt-2">Reasons I Love You</div>
-                    </div>
-                    <div class="counter-box text-center fade-up" style="animation-delay: 0.4s;">
-                        <div class="text-4xl md:text-5xl mb-3 md:mb-4">💕</div>
-                        <div class="counter-number" id="heartbeatsCounter">0</div>
-                        <div class="text-base md:text-lg text-white/90 mt-2">Heartbeats for You</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Story Timeline -->
-        <section id="story" class="py-12 md:py-20 px-4 main-site-bg">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500 mb-12 md:mb-20 fade-up">
-                    Our Beautiful Story ✨
-                </h2>
-
-                <div class="timeline-container relative pl-12 md:pl-0">
-                    <div class="timeline-line hidden md:block"></div>
-
-                    <!-- Timeline Item 1 -->
-                    <div class="mb-12 md:mb-20 relative">
-                        <div class="timeline-dot" style="top: 0;"></div>
-                        <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-                            <div class="md:text-right mb-6 md:mb-0 slide-in-left">
-                                <div class="bg-gradient-to-br from-pink-50 to-rose-50 p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
-                                    <h3 class="text-xl md:text-2xl lg:text-3xl font-playfair font-bold text-pink-600 mb-3 md:mb-4">The First Glance 👀</h3>
-                                    <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                        The moment I saw you, time stood still. Your smile lit up the entire room, and I knew my life would never be the same. It was like finding a piece of my soul I didn't know was missing.
-                                    </p>
-                                    <p class="text-sm md:text-base text-pink-500 mt-3 md:mt-4 font-dancing text-xl md:text-2xl">2004</p>
-                                </div>
-                            </div>
-                            <div class="hidden md:block"></div>
+            
+            <!-- Puzzle Section -->
+            <div id="puzzleSection" class="hidden">
+                <div class="message-card rounded-3xl p-6 md:p-8 mb-8 shadow-2xl">
+                    <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+                        <div class="text-center md:text-left">
+                            <h2 class="text-2xl md:text-3xl font-semibold text-purple-700">Solve the Puzzle</h2>
+                            <p class="text-gray-600">Moves: <span id="moveCount" class="font-bold">0</span></p>
+                        </div>
+                        <div class="flex gap-4 flex-wrap justify-center">
+                            <button onclick="shufflePuzzle()" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
+                                🔀 Shuffle
+                            </button>
+                            <button onclick="resetPuzzle()" class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+                                🔄 Reset
+                            </button>
                         </div>
                     </div>
-
-                    <!-- Timeline Item 2 -->
-                    <div class="mb-12 md:mb-20 relative">
-                        <div class="timeline-dot" style="top: 0;"></div>
-                        <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-                            <div class="hidden md:block"></div>
-                            <div class="slide-in-right">
-                                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
-                                    <h3 class="text-xl md:text-2xl lg:text-3xl font-playfair font-bold text-purple-600 mb-3 md:mb-4">First Date Magic 💫</h3>
-                                    <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                        Our first date was pure magic. Hours felt like minutes as we talked, laughed, and discovered how perfectly our hearts aligned. I fell for you more with every word, every smile, every moment.
-                                    </p>
-                                    <p class="text-sm md:text-base text-purple-500 mt-3 md:mt-4 font-dancing text-xl md:text-2xl">The beginning of forever</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Item 3 -->
-                    <div class="mb-12 md:mb-20 relative">
-                        <div class="timeline-dot" style="top: 0;"></div>
-                        <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-                            <div class="md:text-right mb-6 md:mb-0 slide-in-left">
-                                <div class="bg-gradient-to-br from-rose-50 to-red-50 p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
-                                    <h3 class="text-xl md:text-2xl lg:text-3xl font-playfair font-bold text-rose-600 mb-3 md:mb-4">Growing Together 🌹</h3>
-                                    <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                        Through every laugh, every tear, every challenge and celebration, we've grown stronger together. You've taught me what it means to truly love and be loved unconditionally.
-                                    </p>
-                                    <p class="text-sm md:text-base text-rose-500 mt-3 md:mt-4 font-dancing text-xl md:text-2xl">Every day with you</p>
-                                </div>
-                            </div>
-                            <div class="hidden md:block"></div>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Item 4 -->
-                    <div class="relative">
-                        <div class="timeline-dot" style="top: 0;"></div>
-                        <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-                            <div class="hidden md:block"></div>
-                            <div class="slide-in-right">
-                                <div class="bg-gradient-to-br from-pink-100 to-rose-100 p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow border-2 border-pink-300">
-                                    <h3 class="text-xl md:text-2xl lg:text-3xl font-playfair font-bold text-pink-700 mb-3 md:mb-4">Forever Starts Now 💍</h3>
-                                    <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                        Today marks another beautiful chapter in our story, but it's just the beginning. I promise to love you more each day, to be your partner in all things, and to make you smile for the rest of our lives.
-                                    </p>
-                                    <p class="text-sm md:text-base text-pink-600 mt-3 md:mt-4 font-dancing text-xl md:text-2xl">This is our moment ✨</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Memory Gallery -->
-        <section id="gallery" class="py-12 md:py-20 px-4 bg-white">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500 mb-12 md:mb-16 fade-up">
-                    Our Precious Memories 📸
-                </h2>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                    <!-- Gallery Items -->
-                    <div class="gallery-item bg-gradient-to-br from-pink-200 to-rose-200 h-48 sm:h-56 md:h-64 cursor-pointer fade-up" onclick="openImageModal(1)">
-                        <div class="w-full h-full flex items-center justify-center text-5xl md:text-6xl">💑</div>
-                    </div>
-                    <div class="gallery-item bg-gradient-to-br from-purple-200 to-pink-200 h-48 sm:h-56 md:h-64 cursor-pointer fade-up" onclick="openImageModal(2)">
-                        <div class="w-full h-full flex items-center justify-center text-5xl md:text-6xl">🌹</div>
-                    </div>
-                    <div class="gallery-item bg-gradient-to-br from-rose-200 to-red-200 h-48 sm:h-56 md:h-64 cursor-pointer fade-up" onclick="openImageModal(3)">
-                        <div class="w-full h-full flex items-center justify-center text-5xl md:text-6xl">💝</div>
-                    </div>
-                    <div class="gallery-item bg-gradient-to-br from-pink-300 to-rose-300 h-48 sm:h-56 md:h-64 cursor-pointer fade-up" onclick="openImageModal(4)">
-                        <div class="w-full h-full flex items-center justify-center text-5xl md:text-6xl">🎂</div>
-                    </div>
-                    <div class="gallery-item bg-gradient-to-br from-purple-300 to-pink-300 h-48 sm:h-56 md:h-64 cursor-pointer fade-up" onclick="openImageModal(5)">
-                        <div class="w-full h-full flex items-center justify-center text-5xl md:text-6xl">🌟</div>
-                    </div>
-                    <div class="gallery-item bg-gradient-to-br from-rose-300 to-red-300 h-48 sm:h-56 md:h-64 cursor-pointer fade-up" onclick="openImageModal(6)">
-                        <div class="w-full h-full flex items-center justify-center text-5xl md:text-6xl">💖</div>
-                    </div>
-                </div>
-
-                <p class="text-center text-gray-500 mt-6 md:mt-8 text-xs md:text-sm">
-                    Tap any memory to see it larger 💕
-                </p>
-            </div>
-        </section>
-
-        <!-- Interactive Love Messages Section -->
-        <section id="messages" class="py-12 md:py-20 px-4 main-site-bg">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500 mb-8 md:mb-12 fade-up">
-                    Reasons I Love You 💕
-                </h2>
-                <p class="text-center text-gray-600 mb-8 md:mb-12 text-sm md:text-base fade-up px-4">
-                    Tap each card to reveal a special message from my heart
-                </p>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                    <div class="message-card fade-up" onclick="revealMessage(this)">
-                        <div class="message-front">
-                            <div class="text-4xl md:text-5xl mb-3 md:mb-4 text-center">💖</div>
-                            <h3 class="text-lg md:text-xl font-bold text-pink-600 text-center">Your Smile</h3>
-                        </div>
-                        <div class="message-back hidden">
-                            <p class="text-sm md:text-base">Your smile is the first thing I think about when I wake up and the last thing I see before I sleep. It lights up my entire world and makes everything better.</p>
-                        </div>
-                    </div>
-
-                    <div class="message-card fade-up" onclick="revealMessage(this)" style="animation-delay: 0.1s;">
-                        <div class="message-front">
-                            <div class="text-4xl md:text-5xl mb-3 md:mb-4 text-center">🌟</div>
-                            <h3 class="text-lg md:text-xl font-bold text-purple-600 text-center">Your Kindness</h3>
-                        </div>
-                        <div class="message-back hidden">
-                            <p class="text-sm md:text-base">The way you treat everyone with such grace and compassion inspires me every day. Your heart is pure gold, and I'm blessed to experience your love.</p>
-                        </div>
-                    </div>
-
-                    <div class="message-card fade-up" onclick="revealMessage(this)" style="animation-delay: 0.2s;">
-                        <div class="message-front">
-                            <div class="text-4xl md:text-5xl mb-3 md:mb-4 text-center">💫</div>
-                            <h3 class="text-lg md:text-xl font-bold text-rose-600 text-center">Your Laughter</h3>
-                        </div>
-                        <div class="message-back hidden">
-                            <p class="text-sm md:text-base">Your laugh is my favorite sound in the universe. The way you find joy in little things reminds me to appreciate every moment we share together.</p>
-                        </div>
-                    </div>
-
-                    <div class="message-card fade-up" onclick="revealMessage(this)" style="animation-delay: 0.3s;">
-                        <div class="message-front">
-                            <div class="text-4xl md:text-5xl mb-3 md:mb-4 text-center">🌹</div>
-                            <h3 class="text-lg md:text-xl font-bold text-pink-600 text-center">Your Strength</h3>
-                        </div>
-                        <div class="message-back hidden">
-                            <p class="text-sm md:text-base">You face every challenge with courage and grace. Your strength inspires me to be better, and your resilience teaches me what true power looks like.</p>
-                        </div>
-                    </div>
-
-                    <div class="message-card fade-up" onclick="revealMessage(this)" style="animation-delay: 0.4s;">
-                        <div class="message-front">
-                            <div class="text-4xl md:text-5xl mb-3 md:mb-4 text-center">💝</div>
-                            <h3 class="text-lg md:text-xl font-bold text-purple-600 text-center">Your Support</h3>
-                        </div>
-                        <div class="message-back hidden">
-                            <p class="text-sm md:text-base">You believe in me even when I don't believe in myself. Your unwavering support gives me wings to chase my dreams and the courage to overcome any obstacle.</p>
-                        </div>
-                    </div>
-
-                    <div class="message-card fade-up" onclick="revealMessage(this)" style="animation-delay: 0.5s;">
-                        <div class="message-front">
-                            <div class="text-4xl md:text-5xl mb-3 md:mb-4 text-center">✨</div>
-                            <h3 class="text-lg md:text-xl font-bold text-rose-600 text-center">Your Love</h3>
-                        </div>
-                        <div class="message-back hidden">
-                            <p class="text-sm md:text-base">The way you love me - unconditionally, fiercely, tenderly - has transformed my life. You are my safe place, my adventure, my home, my everything.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Love Letter Section -->
-        <section id="letter" class="py-12 md:py-20 px-4 bg-white">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-500 mb-12 md:mb-16 fade-up">
-                    A Letter From My Heart 💌
-                </h2>
-
-                <div class="love-letter fade-up">
-                    <p class="font-vibes text-2xl md:text-3xl text-pink-600 mb-4 md:mb-6">My Dearest Love,</p>
                     
-                    <p class="mb-4 md:mb-6">
-                        As I sit here thinking about all the moments we've shared, my heart overflows with gratitude and love. You are the answer to prayers I didn't even know I was saying. Every day with you is a gift I cherish more than words can express.
-                    </p>
-
-                    <p class="mb-4 md:mb-6">
-                        You've shown me what it means to be truly loved, to be seen for who I am, and to be cherished in ways I never imagined possible. Your laughter is my favorite sound, your smile is my favorite sight, and your happiness is my greatest mission.
-                    </p>
-
-                    <p class="mb-4 md:mb-6">
-                        Through the highs and lows, the adventures and quiet moments, you've been my constant, my safe haven, my home. You make ordinary days extraordinary and difficult times bearable. With you, I've discovered a love so deep and true that it has transformed my entire world.
-                    </p>
-
-                    <p class="mb-4 md:mb-6">
-                        I promise to love you fiercely and gently, to support your dreams, to hold you when you need comfort, and to celebrate you every single day. I promise to grow with you, to laugh with you, to build a beautiful life with you.
-                    </p>
-
-                    <p class="mb-6 md:mb-8">
-                        You are my today and all of my tomorrows. Thank you for being mine, for choosing me, for loving me. This is just the beginning of forever, my love.
-                    </p>
-
-                    <p class="font-vibes text-2xl md:text-4xl text-right text-pink-600">
-                        Forever yours,<br>
-                        Adi 💍
-                    </p>
+                    <div id="puzzleGrid" class="grid grid-cols-3 gap-1 md:gap-2 max-w-md mx-auto aspect-square bg-white rounded-lg p-2 shadow-inner">
+                        <!-- Puzzle pieces will be generated here -->
+                    </div>
+                    
+                    <div id="victoryMessage" class="hidden mt-6 text-center">
+                        <p class="text-2xl md:text-3xl font-bold text-green-600 mb-4 cursive">
+                            🎉 You Did It! 🎉
+                        </p>
+                        <p class="text-gray-700">Scroll down for your special message...</p>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Final CTA -->
-        <section class="py-12 md:py-20 px-4 bg-gradient-to-br from-pink-500 via-rose-500 to-purple-600 text-white">
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-bold mb-6 md:mb-8 fade-up">
-                    One Last Thing... 💌
+            
+            <!-- Love Letter -->
+            <div id="loveLetter" class="hidden message-card love-letter rounded-3xl p-8 md:p-12 mb-8 shadow-2xl">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="cursive text-4xl md:text-5xl text-center text-purple-700 mb-8">To My Love</h2>
+                    
+                    <div class="space-y-6 text-gray-700 text-base md:text-lg leading-relaxed">
+                        <p class="indent-8">
+                            Every moment with you feels like a beautiful dream I never want to wake up from. 
+                            You've brought so much joy, laughter, and love into my life, and I'm grateful for every single day we spend together.
+                        </p>
+                        
+                        <p class="indent-8">
+                            Like the pieces of this puzzle, we fit together perfectly. Each memory we create, 
+                            each challenge we overcome, and each smile we share adds another piece to the beautiful picture of our love story.
+                        </p>
+                        
+                        <p class="indent-8">
+                            Thank you for being my partner, my best friend, and my greatest adventure. 
+                            Here's to many more anniversaries, countless more memories, and a lifetime of love.
+                        </p>
+                        
+                        <p class="text-right cursive text-2xl md:text-3xl text-purple-700 mt-8">
+                            Forever yours ❤️
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Secret Scratch Card -->
+            <div id="scratchSection" class="hidden message-card rounded-3xl p-6 md:p-8 mb-8 shadow-2xl">
+                <h2 class="text-2xl md:text-3xl font-semibold text-purple-700 mb-4 text-center cursive">
+                    One More Surprise! 🎁
                 </h2>
-                <p class="text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 opacity-95 fade-up px-4">
-                    I made something special just for you
+                <p class="text-gray-600 text-center mb-6">Scratch the card below to reveal your gift...</p>
+                
+                <div class="secret-message relative max-w-md mx-auto h-48 md:h-64 bg-gradient-to-br from-pink-100 to-purple-100 rounded-xl overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center p-6 text-center">
+                        <div>
+                            <p class="text-xl md:text-2xl font-bold text-purple-700 mb-4">🎉 Surprise! 🎉</p>
+                            <p class="text-base md:text-lg text-gray-700">
+                                I've planned a special date night this weekend! 
+                                Get ready for dinner at your favorite restaurant and a surprise adventure! ✨
+                            </p>
+                        </div>
+                    </div>
+                    <canvas id="scratchCanvas" class="absolute top-0 left-0 w-full h-full"></canvas>
+                </div>
+                <p class="text-center text-sm text-gray-500 mt-4">Use your mouse or finger to scratch!</p>
+            </div>
+            
+            <!-- Memory Gallery -->
+            <div id="memoryGallery" class="hidden message-card rounded-3xl p-6 md:p-8 mb-8 shadow-2xl">
+                <h2 class="text-2xl md:text-3xl font-semibold text-purple-700 mb-6 text-center cursive">
+                    Our Journey Together 📸
+                </h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="aspect-square bg-gradient-to-br from-pink-200 to-purple-200 rounded-lg flex items-center justify-center text-4xl">
+                        ❤️
+                    </div>
+                    <div class="aspect-square bg-gradient-to-br from-purple-200 to-pink-200 rounded-lg flex items-center justify-center text-4xl">
+                        😊
+                    </div>
+                    <div class="aspect-square bg-gradient-to-br from-pink-200 to-purple-200 rounded-lg flex items-center justify-center text-4xl">
+                        🌟
+                    </div>
+                    <div class="aspect-square bg-gradient-to-br from-purple-200 to-pink-200 rounded-lg flex items-center justify-center text-4xl">
+                        💑
+                    </div>
+                    <div class="aspect-square bg-gradient-to-br from-pink-200 to-purple-200 rounded-lg flex items-center justify-center text-4xl">
+                        🎉
+                    </div>
+                    <div class="aspect-square bg-gradient-to-br from-purple-200 to-pink-200 rounded-lg flex items-center justify-center text-4xl">
+                        💝
+                    </div>
+                </div>
+                <p class="text-center text-gray-600 mt-6 italic">
+                    "These emojis represent our beautiful moments together. Upload your own photos to make it even more special!"
                 </p>
-                <button 
-                    onclick="openFinalModal()"
-                    class="px-8 md:px-12 py-4 md:py-6 bg-white text-pink-600 rounded-full font-bold text-base md:text-lg lg:text-xl hover:shadow-2xl transform hover:scale-110 transition-all sparkle"
-                >
-                    Click to See 💖
+            </div>
+            
+            <!-- Final Message -->
+            <div id="finalMessage" class="hidden text-center message-card rounded-3xl p-8 md:p-12 shadow-2xl">
+                <h2 class="cursive text-4xl md:text-5xl text-purple-700 mb-6">
+                    I Love You More Each Day ❤️
+                </h2>
+                <p class="text-lg md:text-xl text-gray-700 mb-8">
+                    Thank you for being you, and thank you for being mine.
+                </p>
+                <button onclick="location.reload()" class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-pink-600 hover:to-purple-700 transform hover:scale-105 transition-all shadow-lg">
+                    Start Over ❤️
                 </button>
             </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="bg-gray-900 text-white py-6 md:py-8 text-center px-4">
-            <p class="text-lg md:text-xl font-vibes mb-2">Made with endless love by Adi ❤️</p>
-            <p class="text-xs md:text-sm text-gray-400">For the most amazing person in the world 💕</p>
-        </footer>
-    </div>
-
-    <!-- Image Modal -->
-    <div id="imageModal" class="modal" onclick="closeModalOnBackdrop(event, 'imageModal')">
-        <div class="modal-content max-w-3xl">
-            <button onclick="closeImageModal()" class="absolute top-2 right-2 md:top-4 md:right-4 text-3xl md:text-4xl text-gray-500 hover:text-gray-700 transition-colors z-10 bg-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
-                ×
-            </button>
-            <div id="modalImageContent" class="text-center">
-                <!-- Image content will be inserted here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Final Surprise Modal -->
-    <div id="finalModal" class="modal" onclick="closeModalOnBackdrop(event, 'finalModal')">
-        <div class="modal-content">
-            <button onclick="closeFinalModal()" class="absolute top-2 right-2 md:top-4 md:right-4 text-3xl md:text-4xl text-gray-500 hover:text-gray-700 transition-colors z-10 bg-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
-                ×
-            </button>
-            <div class="text-center">
-                <div class="text-6xl md:text-8xl mb-4 md:mb-6 heart-beat">💖</div>
-                <h3 class="text-2xl md:text-3xl lg:text-4xl font-playfair font-bold text-pink-600 mb-4 md:mb-6">
-                    You Are My Everything
-                </h3>
-                <p class="text-sm md:text-lg text-gray-700 leading-relaxed mb-4 md:mb-6">
-                    I created this website because words alone could never capture how much you mean to me. You deserve to know, every single day, that you are loved beyond measure, cherished beyond words, and valued beyond compare.
-                </p>
-                <p class="text-sm md:text-lg text-gray-700 leading-relaxed mb-6 md:mb-8">
-                    Thank you for being my partner, my best friend, my love. Here's to us, to our journey, and to forever together.
-                </p>
-                <p class="text-xl md:text-2xl lg:text-3xl font-vibes text-pink-600 mb-3 md:mb-4">
-                    I love you more than infinity 💕
-                </p>
-                <p class="text-lg md:text-xl lg:text-2xl font-vibes text-pink-500">
-                    - Adi ❤️
-                </p>
-            </div>
+            
         </div>
     </div>
 
     <script>
-        // ============================================
-        // LOGIN LOGIC
-        // ============================================
-        const loginForm = document.getElementById('loginForm');
-        const passwordInput = document.getElementById('password');
-        const errorMessage = document.getElementById('errorMessage');
-        const loginScreen = document.getElementById('loginScreen');
-        const mainSite = document.getElementById('mainSite');
-
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const password = passwordInput.value;
-
-            if (password === '2004') {
-                errorMessage.style.color = '#fff';
-                errorMessage.textContent = 'Welcome to our world, my love... 💕';
+        // Floating hearts animation
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsContainer');
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 8000);
+            }, 2000);
+        }
+        
+        // Start experience
+        function startExperience() {
+            document.getElementById('welcomeScreen').classList.add('hidden');
+            document.getElementById('mainExperience').classList.remove('hidden');
+            createFloatingHearts();
+        }
+        
+        // Puzzle Game Variables
+        let puzzleImage = null;
+        let puzzlePieces = [];
+        let emptyIndex = 8;
+        let moveCount = 0;
+        let isCompleted = false;
+        
+        // Image upload handler
+        document.getElementById('imageUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    puzzleImage = new Image();
+                    puzzleImage.onload = function() {
+                        initializePuzzle();
+                    };
+                    puzzleImage.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Demo image
+        function useDemoImage() {
+            puzzleImage = new Image();
+            puzzleImage.onload = function() {
+                initializePuzzle();
+            };
+            // Create a beautiful gradient demo image
+            const canvas = document.createElement('canvas');
+            canvas.width = 600;
+            canvas.height = 600;
+            const ctx = canvas.getContext('2d');
+            
+            // Gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 600, 600);
+            gradient.addColorStop(0, '#ff6b9d');
+            gradient.addColorStop(0.5, '#c06c84');
+            gradient.addColorStop(1, '#6c5b7b');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 600, 600);
+            
+            // Hearts
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.font = 'bold 120px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('❤️', 300, 200);
+            ctx.fillText('💑', 200, 400);
+            ctx.fillText('💝', 400, 400);
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 48px Arial';
+            ctx.fillText('US', 300, 300);
+            
+            puzzleImage.src = canvas.toDataURL();
+        }
+        
+        // Initialize puzzle
+        function initializePuzzle() {
+            document.getElementById('uploadSection').classList.add('hidden');
+            document.getElementById('puzzleSection').classList.remove('hidden');
+            
+            puzzlePieces = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            emptyIndex = 8;
+            moveCount = 0;
+            isCompleted = false;
+            document.getElementById('moveCount').textContent = moveCount;
+            document.getElementById('victoryMessage').classList.add('hidden');
+            
+            renderPuzzle();
+            setTimeout(() => shufflePuzzle(), 500);
+        }
+        
+        // Render puzzle
+        function renderPuzzle() {
+            const grid = document.getElementById('puzzleGrid');
+            grid.innerHTML = '';
+            
+            puzzlePieces.forEach((piece, index) => {
+                const div = document.createElement('div');
+                div.className = 'puzzle-piece rounded-lg';
+                
+                if (piece === 8) {
+                    div.style.backgroundColor = 'rgba(0,0,0,0.1)';
+                } else {
+                    const row = Math.floor(piece / 3);
+                    const col = piece % 3;
+                    div.style.backgroundImage = `url(${puzzleImage.src})`;
+                    div.style.backgroundPosition = `${-col * 100}% ${-row * 100}%`;
+                }
+                
+                div.addEventListener('click', () => movePiece(index));
+                grid.appendChild(div);
+            });
+        }
+        
+        // Move piece
+        function movePiece(index) {
+            if (isCompleted) return;
+            
+            const row = Math.floor(index / 3);
+            const col = index % 3;
+            const emptyRow = Math.floor(emptyIndex / 3);
+            const emptyCol = emptyIndex % 3;
+            
+            const isAdjacent = (Math.abs(row - emptyRow) === 1 && col === emptyCol) ||
+                              (Math.abs(col - emptyCol) === 1 && row === emptyRow);
+            
+            if (isAdjacent) {
+                [puzzlePieces[index], puzzlePieces[emptyIndex]] = [puzzlePieces[emptyIndex], puzzlePieces[index]];
+                emptyIndex = index;
+                moveCount++;
+                document.getElementById('moveCount').textContent = moveCount;
+                renderPuzzle();
+                checkWin();
+            }
+        }
+        
+        // Shuffle puzzle
+        function shufflePuzzle() {
+            for (let i = 0; i < 100; i++) {
+                const validMoves = getValidMoves();
+                const randomMove = validMoves[Math.floor(Math.random() * validMoves.length)];
+                [puzzlePieces[randomMove], puzzlePieces[emptyIndex]] = [puzzlePieces[emptyIndex], puzzlePieces[randomMove]];
+                emptyIndex = randomMove;
+            }
+            renderPuzzle();
+        }
+        
+        // Get valid moves
+        function getValidMoves() {
+            const moves = [];
+            const row = Math.floor(emptyIndex / 3);
+            const col = emptyIndex % 3;
+            
+            if (row > 0) moves.push(emptyIndex - 3);
+            if (row < 2) moves.push(emptyIndex + 3);
+            if (col > 0) moves.push(emptyIndex - 1);
+            if (col < 2) moves.push(emptyIndex + 1);
+            
+            return moves;
+        }
+        
+        // Reset puzzle
+        function resetPuzzle() {
+            initializePuzzle();
+        }
+        
+        // Check win
+        function checkWin() {
+            const isWon = puzzlePieces.every((piece, index) => piece === index);
+            
+            if (isWon && !isCompleted) {
+                isCompleted = true;
+                document.getElementById('victoryMessage').classList.remove('hidden');
+                createConfetti();
                 
                 setTimeout(() => {
-                    loginScreen.style.transition = 'opacity 0.8s ease';
-                    loginScreen.style.opacity = '0';
-                    setTimeout(() => {
-                        loginScreen.classList.add('hidden');
-                        mainSite.classList.remove('hidden');
-                        initMainSite();
-                    }, 800);
-                }, 1200);
-            } else {
-                errorMessage.style.color = '#ffcccb';
-                errorMessage.textContent = "That's not our memory yet 💔";
-                passwordInput.value = '';
-                passwordInput.classList.add('shake');
-                setTimeout(() => passwordInput.classList.remove('shake'), 500);
-            }
-        });
-
-        // ============================================
-        // FLOATING HEARTS FOR LOGIN
-        // ============================================
-        function createFloatingHearts() {
-            const container = document.getElementById('floatingHearts');
-            const hearts = ['💕', '💖', '💗', '💓', '💝', '❤️', '💘', '💞'];
-            
-            for (let i = 0; i < 20; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'floating-heart';
-                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.top = Math.random() * 100 + '%';
-                heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
-                container.appendChild(heart);
+                    document.getElementById('loveLetter').classList.remove('hidden');
+                    document.getElementById('loveLetter').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+                
+                setTimeout(() => {
+                    document.getElementById('scratchSection').classList.remove('hidden');
+                    initScratchCard();
+                }, 2000);
+                
+                setTimeout(() => {
+                    document.getElementById('memoryGallery').classList.remove('hidden');
+                }, 3000);
+                
+                setTimeout(() => {
+                    document.getElementById('finalMessage').classList.remove('hidden');
+                    document.getElementById('finalMessage').scrollIntoView({ behavior: 'smooth' });
+                }, 4000);
             }
         }
-
-        createFloatingHearts();
-
-        // ============================================
-        // MAIN SITE INITIALIZATION
-        // ============================================
-        function initMainSite() {
-            createParticles();
-            observeElements();
-            animateCounters();
-            startHeartbeatCounter();
+        
+        // Confetti
+        function createConfetti() {
+            const colors = ['#ff6b9d', '#c06c84', '#6c5b7b', '#355c7d', '#f8b500'];
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
         }
-
-        // ============================================
-        // FLOATING PARTICLES
-        // ============================================
-        function createParticles() {
-            const container = document.getElementById('particles');
-            const particles = ['✨', '💫', '⭐', '🌟', '💕', '💖', '💗', '🌸'];
+        
+        // Scratch Card
+        function initScratchCard() {
+            const canvas = document.getElementById('scratchCanvas');
+            const ctx = canvas.getContext('2d');
             
-            setInterval(() => {
-                if (document.querySelectorAll('.particle').length < 30) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.textContent = particles[Math.floor(Math.random() * particles.length)];
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.fontSize = (Math.random() * 25 + 15) + 'px';
-                    particle.style.animationDuration = (Math.random() * 6 + 6) + 's';
-                    particle.style.animationDelay = Math.random() * 2 + 's';
-                    container.appendChild(particle);
-
-                    setTimeout(() => particle.remove(), 12000);
-                }
-            }, 800);
-        }
-
-        // ============================================
-        // INTERSECTION OBSERVER FOR ANIMATIONS
-        // ============================================
-        function observeElements() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { 
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+            // Set canvas size
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            
+            // Draw scratch surface
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#ffd700');
+            gradient.addColorStop(1, '#ffa500');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 24px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('Scratch Here! 🎁', canvas.width / 2, canvas.height / 2);
+            
+            let isDrawing = false;
+            
+            function scratch(x, y) {
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.beginPath();
+                ctx.arc(x, y, 30, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            canvas.addEventListener('mousedown', () => isDrawing = true);
+            canvas.addEventListener('mouseup', () => isDrawing = false);
+            canvas.addEventListener('mousemove', (e) => {
+                if (!isDrawing) return;
+                const rect = canvas.getBoundingClientRect();
+                scratch(e.clientX - rect.left, e.clientY - rect.top);
             });
-
-            document.querySelectorAll('.fade-up, .slide-in-left, .slide-in-right').forEach(el => {
-                observer.observe(el);
-            });
-        }
-
-        // ============================================
-        // COUNTER ANIMATIONS
-        // ============================================
-        function animateCounters() {
-            // Calculate days together (from 2004 to now)
-            const startDate = new Date('2004-01-01');
-            const today = new Date();
-            const daysTogether = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
             
-            animateCounter('daysCounter', daysTogether, 2000);
-        }
-
-        function animateCounter(elementId, target, duration) {
-            const element = document.getElementById(elementId);
-            const start = 0;
-            const increment = target / (duration / 16);
-            let current = start;
-
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = Math.floor(target).toLocaleString();
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current).toLocaleString();
-                }
-            }, 16);
-        }
-
-        // ============================================
-        // HEARTBEAT COUNTER
-        // ============================================
-        function startHeartbeatCounter() {
-            let heartbeats = 0;
-            const element = document.getElementById('heartbeatsCounter');
-            
-            setInterval(() => {
-                heartbeats += Math.floor(Math.random() * 3) + 1;
-                element.textContent = heartbeats.toLocaleString();
-            }, 1000);
-        }
-
-        // ============================================
-        // REVEAL MESSAGE CARDS
-        // ============================================
-        function revealMessage(card) {
-            const front = card.querySelector('.message-front');
-            const back = card.querySelector('.message-back');
-            
-            if (card.classList.contains('revealed')) {
-                card.classList.remove('revealed');
-                front.classList.remove('hidden');
-                back.classList.add('hidden');
-            } else {
-                card.classList.add('revealed');
-                front.classList.add('hidden');
-                back.classList.remove('hidden');
-            }
-        }
-
-        // ============================================
-        // MODAL FUNCTIONS
-        // ============================================
-        function openImageModal(imageNum) {
-            const modal = document.getElementById('imageModal');
-            const content = document.getElementById('modalImageContent');
-            
-            const messages = [
-                { emoji: '💑', text: 'Every moment with you is a treasure', subtitle: 'Us against the world' },
-                { emoji: '🌹', text: 'You make life beautiful', subtitle: 'My eternal rose' },
-                { emoji: '💝', text: 'My heart belongs to you', subtitle: 'Forever and always' },
-                { emoji: '🎂', text: 'Celebrating every moment together', subtitle: 'Our special days' },
-                { emoji: '🌟', text: 'You light up my world', subtitle: 'My shining star' },
-                { emoji: '💖', text: 'Forever and always', subtitle: 'You and me' }
-            ];
-
-            const item = messages[imageNum - 1];
-            content.innerHTML = `
-                <div class="text-7xl md:text-9xl mb-4 md:mb-6 heart-beat">${item.emoji}</div>
-                <p class="text-xl md:text-3xl font-vibes text-pink-600 mb-2 md:mb-3">${item.text}</p>
-                <p class="text-sm md:text-lg text-gray-600">${item.subtitle}</p>
-            `;
-            
-            modal.classList.add('active');
-        }
-
-        function closeImageModal() {
-            document.getElementById('imageModal').classList.remove('active');
-        }
-
-        function openFinalModal() {
-            document.getElementById('finalModal').classList.add('active');
-        }
-
-        function closeFinalModal() {
-            document.getElementById('finalModal').classList.remove('active');
-        }
-
-        // Close modal when clicking backdrop
-        function closeModalOnBackdrop(event, modalId) {
-            if (event.target.id === modalId) {
-                document.getElementById(modalId).classList.remove('active');
-            }
-        }
-
-        // ============================================
-        // SMOOTH SCROLL TO SECTIONS
-        // ============================================
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            canvas.addEventListener('touchstart', (e) => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                isDrawing = true;
             });
-        });
-
-        // ============================================
-        // PREVENT ZOOMING ON MOBILE INPUT FOCUS
-        // ============================================
-        document.addEventListener('touchstart', function(e) {
-            if (e.touches.length > 1) {
+            canvas.addEventListener('touchend', () => isDrawing = false);
+            canvas.addEventListener('touchmove', (e) => {
+                if (!isDrawing) return;
                 e.preventDefault();
-            }
-        }, { passive: false });
-
-        // ============================================
-        // AUTO-FOCUS PASSWORD INPUT (DESKTOP ONLY)
-        // ============================================
-        if (window.innerWidth > 768) {
-            setTimeout(() => {
-                passwordInput.focus();
-            }, 500);
+                const rect = canvas.getBoundingClientRect();
+                const touch = e.touches[0];
+                scratch(touch.clientX - rect.left, touch.clientY - rect.top);
+            });
         }
     </script>
 </body>
